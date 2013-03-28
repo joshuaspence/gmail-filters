@@ -11,9 +11,9 @@ Dependencies
 ------------
 To create the Gmail filters (in XML format), the following packages are
 required:
-    - ruby (>= 1.9.2)
-    - bundler (>= 1.2.0)
-    - gmail-britta (>= 0.1.6)
+* ruby (>= 1.9.2)
+* bundler (>= 1.2.0)
+* gmail-britta (>= 0.1.6)
 
 These packages can be installed using the following commands:
 ```sh
