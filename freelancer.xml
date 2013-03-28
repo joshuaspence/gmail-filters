@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8'?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:apps='http://schemas.google.com/apps/2006'>
+	<title>Mail Filters</title>
+	<id></id>
+	<updated>2013-02-14T00:00:00Z</updated>
+	<author>
+		<name>Joshua Spence</name>
+		<email>josh@freelancer.com</email>
+	</author>
+	
+	<!--=====================================================================-->
+	<!-- Competitors                                                         -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Competitors/Competitor Coverage</title>
+		<id></id>
+		<updated>2013-01-01T00:01:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='kevin@freelancer.com'/>
+		<apps:property name='subject' value='&quot;Competitor Coverage&quot;'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Competitors/Competitor Coverage'/>
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldMarkAsRead' value='true'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Competitors/Elance</title>
+		<id></id>
+		<updated>2013-01-01T00:02:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@elance.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Competitors/Elance'/>
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Competitors/Freelancer</title>
+		<id></id>
+		<updated>2013-01-01T00:03:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='to' value='josh+freelancer@freelancer.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Competitors/Freelancer'/>
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Competitors/Freelancer - Latest Projects</title>
+		<id></id>
+		<updated>2013-01-01T00:04:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='to' value='josh+freelancer@freelancer.com'/>
+		<apps:property name='subject' value='Latest projects and contests matching your skills.'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Competitors/Freelancer'/>
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldMarkAsRead' value='true'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Competitors/oDesk</title>
+		<id></id>
+		<updated>2013-01-01T00:05:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='to' value='josh+odesk@freelancer.com OR joshuaspence@odesk.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Competitors/oDesk'/>
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Competitors/PeoplePerHour</title>
+		<id></id>
+		<updated>2013-01-01T00:06:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='to' value='josh+peopleperhour@freelancer.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Competitors/PeoplePerHour'/>
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Competitors/PeoplePerHour - Search Results</title>
+		<id></id>
+		<updated>2013-01-01T00:07:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='to' value='josh+peopleperhour@freelancer.com'/>
+		<apps:property name='subject' value='&quot;New Jobs match your search results&quot;'/>
+		
+		<!-- Actions -->
+		<apps:property name='shouldMarkAsRead' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Site                                                                -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Site/Stats - AddThis</title>
+		<id></id>
+		<updated>2013-01-02T00:01:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='support@addthis.com'/>
+		<apps:property name='subject' value='AddThis Analytics'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Site/Stats'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Site/System Admin/Buildbot</title>
+		<id></id>
+		<updated>2013-01-02T00:02:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='eng+iambuildbot@freelancer.com OR buildbot@staging.freelancer.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Site/System Admin/Buildbot'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Site/System Admin/Dashboard</title>
+		<id></id>
+		<updated>2013-01-02T00:03:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='dashboard@freelancer.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Site/System Admin/Dashboard'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Site/Bugs - Redmine</title>
+		<id></id>
+		<updated>2013-01-02T00:04:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='redmine@redmine.freelancer.com'/>
+		<apps:property name='subject' value='[Bugs - Bug'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Site/Bugs'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Site/System Admin/Dashboard - Daily Report</title>
+		<id></id>
+		<updated>2013-01-02T00:05:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='dashboard@freelancer.com'/>
+		<apps:property name='subject' value='[Analytics Alert] Daily report'/>
+		
+		<!-- Actions -->
+		<apps:property name='shouldMarkAsRead' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Tech                                                                -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Tech/Articles - techcrunch.com</title>
+		<id></id>
+		<updated>2013-01-03T00:01:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='hasTheWord' value='http://techcrunch.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Tech/Articles'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Tech/Articles - venturebeat.com</title>
+		<id></id>
+		<updated>2013-01-03T00:02:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='hasTheWord' value='http://venturebeat.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Tech/Articles'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Tech/Articles - theverge.com</title>
+		<id></id>
+		<updated>2013-01-03T00:03:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='hasTheWord' value='http://www.theverge.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Tech/Articles'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Tech/Articles - buzzfeed.com</title>
+		<id></id>
+		<updated>2013-01-03T00:04:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='hasTheWord' value='http://www.buzzfeed.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Tech/Articles'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Tech/Articles - seomoz.com</title>
+		<id></id>
+		<updated>2013-01-03T00:05:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='hasTheWord' value='http://www.seomoz.org'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Tech/Articles'/>
+	</entry>
+	
+	
+	<!--=====================================================================-->
+	<!-- Growth                                                              -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Growth/Daily Stats</title>
+		<id></id>
+		<updated>2013-01-04T00:01:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='subject' value='&quot;Daily Stats&quot;'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Growth/Daily Stats'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Growth/Membership - Rejoined Memberships</title>
+		<id></id>
+		<updated>2013-01-04T00:02:00Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='www-data@freelancer.com'/>
+		<apps:property name='subject' value='&quot;rejoined memberships&quot;'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Growth/Membership'/>
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldMarkAsRead' value='true'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+</feed>

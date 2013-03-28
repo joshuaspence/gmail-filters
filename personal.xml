@@ -1,0 +1,629 @@
+<?xml version='1.0' encoding='UTF-8'?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:apps='http://schemas.google.com/apps/2006'>
+	<title>Mail Filters</title>
+	<id></id>
+	<updated>2013-01-16T00:00:00Z</updated>
+	<author>
+		<name>Joshua Spence</name>
+		<email>josh@joshuaspence.com</email>
+	</author>
+	
+	<!--=====================================================================-->
+	<!-- Banking                                                             -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Banking - Commonwealth Bank of Australia</title>
+		<id></id>
+		<updated>2013-01-01T00:01:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@cba.com.au OR @commonwealthawards.com.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Bank'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Banking - Bank statements</title>
+		<id></id>
+		<updated>2013-01-01T00:01:02Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='NetBankNotification@cba.com.au'/>
+		<apps:property name='subject' value='&quot;new statement&quot; OR &quot;new account statement&quot; OR &quot;new credit card statement&quot;'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Bank'/>
+		<apps:property name='shouldStar' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Family                                                              -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Family - Dad</title>
+		<id></id>
+		<updated>2013-01-01T00:02:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='mspence@thehills.nsw.gov.au'/>
+		<apps:property name='doesNotHaveTheWord' value='reporter@tvpr.com.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Family'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Family - Other</title>
+		<id></id>
+		<updated>2013-01-01T00:02:02Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='spencej@bigpond.net.au OR lisson@optusnet.com.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Family'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Firearms                                                            -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Firearms - Sporting Shooters</title>
+		<id></id>
+		<updated>2013-01-01T00:03:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='sportingshooter@broadcast.yaffa.com.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Firearms'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Firearms/Dealers - Brownells</title>
+		<id></id>
+		<updated>2013-01-01T00:03:02Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@brownells.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Firearms/Dealers'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Firearms/Dealers - Cleaver Firearms</title>
+		<id></id>
+		<updated>2013-01-01T00:03:03Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@cleaverfirearms.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Firearms/Dealers'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Firearms/Dealers - Safari Firearms</title>
+		<id></id>
+		<updated>2013-01-01T00:03:04Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@safarifirearms.com.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Firearms/Dealers'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Invoices                                                            -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Invoices - Generic</title>
+		<id></id>
+		<updated>2013-01-01T00:04:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='hasTheWord' value='(Receipt OR Invoice OR has:attachment) AND subject:(Invoice OR Receipt OR Order)'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Invoices'/>
+		<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+		<apps:property name='shouldStar' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Invoices - eBay (1)</title>
+		<id></id>
+		<updated>2013-01-01T00:04:02Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='ebay@ebay.com.au'/>
+		<apps:property name='subject' value='&quot;Your invoice for eBay purchases:&quot;'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Invoices'/>
+		<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+		<apps:property name='shouldStar' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Invoices - eBay (2)</title>
+		<id></id>
+		<updated>2013-01-01T00:04:03Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='billing@ebay.com.au'/>
+		<apps:property name='subject' value='&quot;eBay Invoice Notification&quot;'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Invoices'/>
+		<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+		<apps:property name='shouldStar' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Invoices - PayPal</title>
+		<id></id>
+		<updated>2013-01-01T00:04:04Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='service@paypal.com.au'/>
+		<apps:property name='subject' value='&quot;Receipt for your * purchase&quot;'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Invoices'/>
+		<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+		<apps:property name='shouldStar' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Invoices - Phone bill</title>
+		<id></id>
+		<updated>2013-01-01T00:04:05Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@online.telstra.com.au'/>
+		<apps:property name='subject' value='&quot;Telstra Bill - Arrival Notification&quot;'/>
+		<apps:property name='hasAttachment' value='true'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Invoices'/>
+		<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+		<apps:property name='shouldStar' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Invoices - eTag statement</title>
+		<id></id>
+		<updated>2013-01-01T00:04:06Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='enquiries@roam.com.au'/>
+		<apps:property name='subject' value='&quot;Your Roam Statement is available online&quot;'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Invoices'/>
+		<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+		<apps:property name='shouldStar' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Junk                                                                -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Junk - MSY</title>
+		<id></id>
+		<updated>2013-01-01T00:05:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='noreply@news.msy.com.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldNeverMarkAsImportant' value='true'/>
+		<apps:property name='shouldTrash' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Newsletters                                                         -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Newsletters - Generic (Thin)</title>
+		<id></id>
+		<updated>2013-01-01T00:06:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='hasTheWord' value='(&quot;opt-out&quot; OR unsubscribe OR &quot;viewing the newsletter&quot; OR &quot;to view this email as a web page&quot; OR &quot;read the online version&quot; OR newsletter OR newsletters OR subscriptions) -from:(@plus.google.com OR (member@linkedin.com OR connections@linkedin.com OR hit-reply@linkedin.com))'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Newsletters'/>
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldNeverMarkAsImportant' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Newsletters - Generic (Thick)</title>
+		<id></id>
+		<updated>2013-01-01T00:06:02Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='hasTheWord' value='&quot;edit your preferences&quot; OR &quot;email notifications&quot; OR &quot;update profile&quot; OR &quot;manage your account&quot; OR &quot;do not wish to receive&quot; OR &quot;Powered by&quot; OR &quot;If you would like to remove yourself&quot; OR &quot;Trouble viewing this mail&quot; OR &quot;Trouble viewing this email&quot; OR &quot;Privacy policy / Terms of service&quot; OR &quot;To ensure delivery&quot; OR &quot;If you would rather not receive&quot; OR &quot;automated system&quot;'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Newsletters'/>
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldNeverMarkAsImportant' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Newsletters - NRA</title>
+		<id></id>
+		<updated>2013-01-01T00:06:03Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='nrastore@nramedia.org OR admin@nramedia.org'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Newsletters'/>
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldNeverMarkAsImportant' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Orders                                                              -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Orders - Generic</title>
+		<id></id>
+		<updated>2013-01-01T00:07:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='hasTheWord' value='&quot;order number&quot; AND &quot;confirmation&quot;'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Orders'/>
+		<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Phone                                                               -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Phone - Phone bill</title>
+		<id></id>
+		<updated>2013-01-01T00:08:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@online.telstra.com'/>
+		<apps:property name='subject' value='&quot;Your Telstra Email Bill&quot;'/>
+		<apps:property name='hasAttachment' value='true'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Phone'/>
+		<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldStar' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Phone - Phone bill</title>
+		<id></id>
+		<updated>2013-01-01T00:08:02Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@telstra.com.au OR @news.telstra.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Phone'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Social                                                              -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Social - about.me</title>
+		<id></id>
+		<updated>2013-01-01T00:09:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='aboutme@about.me'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Social Networking'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Social - Facebook</title>
+		<id></id>
+		<updated>2013-01-01T00:09:02Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@facebook.com OR @facebookmail.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Social Networking'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Social - Foursquare</title>
+		<id></id>
+		<updated>2013-01-01T00:09:03Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@foursquare.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Social Networking'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Social - Google Plus</title>
+		<id></id>
+		<updated>2013-01-01T00:09:04Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@plus.google.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Social Networking'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Social - LinkedIn</title>
+		<id></id>
+		<updated>2013-01-01T00:09:05Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='member@linkedin.com OR connections@linkedin.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Social Networking'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Social - Twitter</title>
+		<id></id>
+		<updated>2013-01-01T00:09:06Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@twitter.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Social Networking'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Sydney Colonial Muzzle Loading Club                                 -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Sydney Colonial Muzzle Loading Club</title>
+		<id></id>
+		<updated>2013-01-01T00:10:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='to' value='scmlc@joshuaspence.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='SCMLC'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- University                                                          -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>University - From</title>
+		<id></id>
+		<updated>2013-01-01T00:11:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@usyd.edu.au OR @sydney.edu.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='University'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>University - To</title>
+		<id></id>
+		<updated>2013-01-01T00:11:02Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='to' value='jspe9969@uni.sydney.edu.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='University'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Utility                                                               -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Utility - Notes</title>
+		<id></id>
+		<updated>2013-01-01T00:12:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='josh@joshuaspence.com OR josh@joshuaspence.com.au OR joshua@joshuaspence.com OR joshua@joshuaspence.com.au'/>
+		<apps:property name='to' value='josh@joshuaspence.com OR josh@joshuaspence.com.au OR joshua@joshuaspence.com OR joshua@joshuaspence.com.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Notes'/>
+		<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+		<apps:property name='shouldArchive' value='true'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Utility - Old email address</title>
+		<id></id>
+		<updated>2013-01-01T00:12:02Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='to' value='joshua.james.spence@gmail.com'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Sent to old email address'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Vehicle                                                             -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Vehicle - eTag statement</title>
+		<id></id>
+		<updated>2013-01-01T00:13:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='enquiries@roam.com.au'/>
+		<apps:property name='subject' value='&quot;Your Roam Statement is available online&quot;'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Vehicle'/>
+		<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+		<apps:property name='shouldStar' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Vehicle - Roam</title>
+		<id></id>
+		<updated>2013-01-01T00:13:02Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@roam.com.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Vehicle'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Vehicle - RTA</title>
+		<id></id>
+		<updated>2013-01-01T00:13:03Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='@rta.nsw.gov.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Vehicle'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Website                                                             -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Website - Digital Pacific</title>
+		<id></id>
+		<updated>2013-01-01T00:14:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='*@digitalpacific.com.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Website'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	
+	<!--=====================================================================-->
+	<!-- Work                                                                -->
+	<!--=====================================================================-->
+	<entry>
+		<category term='filter'></category>
+		<title>Work/Howard &amp; Sons</title>
+		<id></id>
+		<updated>2013-01-01T00:15:01Z</updated>
+		<content></content>
+		
+		<!-- Criteria -->
+		<apps:property name='from' value='howardsfireworks.com.au OR chris@mbjtech.com.au'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Work/Howard and Sons'/>
+		<apps:property name='shouldArchive' value='true'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Work/Payslips - Howard &amp; Sons</title>
+		<id></id>
+		<updated>2013-01-01T00:15:02Z</updated>
+		<content></content>
+		
+		<!-- Critera -->
+		<apps:property name='from' value='@howardsfireworks.com.au'/>
+		<apps:property name='subject' value='Payslip OR &quot;From Howard &amp; Sons Pyrotechnics (Displays) PL&quot;'/>
+		<apps:property name='hasAttachment' value='true'/>
+		
+		<!-- Actions -->
+		<apps:property name='label' value='Work/Payslips'/>
+		<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+		<apps:property name='shouldStar' value='true'/>
+	</entry>
+</feed>
