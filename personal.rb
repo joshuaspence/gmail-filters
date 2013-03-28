@@ -29,15 +29,20 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com', 'joshua@joshuaspenc
           # Facebook
           'facebookmail.com',
           
+          # Foursquare
+          'noreply@foursquare.com',
+          
           # Google Plus
           'plus.google.com',
           
           # LinkedIn
           'connections@linkedin.com',
+          'e.linkedin.com',
           'group-digests@linkedin.com',
           'hit-reply@linkedin.com',
           'invitations@linkedin.com',
           'jobs-listings@linkedin.com',
+          'linkedin@em.linkedin.com',
           'member@linkedin.com',
           'messages-noreply@linkedin.com',
           'updates@linkedin.com',
@@ -107,11 +112,13 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com', 'joshua@joshuaspenc
       
       # LinkedIn exclusion
       {
-        :not => [
-          'connections@linkedin.com',
-          'hit-reply@linkedin.com',
-          'member@linkedin.com'
-        ].map{|email| "from:#{email}"}
+        :not => {
+          :or => [
+            'connections@linkedin.com',
+            'hit-reply@linkedin.com',
+            'member@linkedin.com'
+          ].map{|email| "from:#{email}"}
+        }      
       },
       
       # Telstra exclusion
@@ -131,13 +138,11 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com', 'joshua@joshuaspenc
     has [
       {
         :or => [
-          {
-            :or => [
-              'usyd.edu.au',
-              'sydney.edu.au'
-            ].map{|email| "from:#{email}"}
-          },
-          {:or => 'to:jspe9969@uni.sydney.edu.au'}
+          [
+            'usyd.edu.au',
+            'sydney.edu.au'
+          ].map{|email| "from:#{email}"},
+          'to:jspe9969@uni.sydney.edu.au'
         ]
       }
     ]
@@ -214,18 +219,22 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com', 'joshua@joshuaspenc
       {
         :or => [
           # Generic
-          {
-            :or => [
-              'Receipt',
-              'Invoice',
-              'has:attachment'
-            ],
-            :or => [
-              'Invoice',
-              'Receipt',
-              'Order'
-            ].map{|subject| "subject:#{subject}"}
-          },
+          [
+            {
+              :or => [
+                'Receipt',
+                'Invoice',
+                'has:attachment'
+              ]
+            },
+            {
+              :or => [
+                'Invoice',
+                'Receipt',
+                'Order'
+              ].map{|subject| "subject:#{subject}"}
+            }
+          ],
           
           # Telstra phone bill
           [
@@ -346,14 +355,23 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com', 'joshua@joshuaspenc
     has [
       {
         :or => [
-          [
-            '"order number"',
-            'confirmation'
-          ],
+          {
+            :or => [
+              '"order number"',
+              'confirmation',
+              '"shipping confirmation"',
+              '"order has shipped"',
+              '"tracking number"',
+            ]
+          },
           {
             :or => [
               'auto-confirm@amazon.com',
-              'ship-confirm@amazon.com'
+              'order-update@amazon.com',
+              'ship-confirm@amazon.com',
+              'auto-confirm@amazon.co.uk',
+              'order-update@amazon.co.uk',
+              'ship-confirm@amazon.co.uk'
             ].map{|email| "from:#{email}"}
           }
         ]
