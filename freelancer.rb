@@ -3,18 +3,6 @@
 require 'bundler/setup'
 require 'gmail-britta'
 
-#===============================================================================
-# Configuration
-#-------------------------------------------------------------------------------
-TEST_EMAILS = [
-  'josh+freelancer@freelancer.com'
-]
-
-FREELANCER_DOMAINS = [
-  '@freelancer.com'
-]
-#===============================================================================
-
 fs = GmailBritta.filterset(:me => [ 'josh@freelancer.com' ]) do
   # Competitor coverage
   filter {
@@ -27,7 +15,7 @@ fs = GmailBritta.filterset(:me => [ 'josh@freelancer.com' ]) do
   
   # Elance
   filter {
-    has [ 'from:@elance.com' ]
+    has [ 'from:elance.com' ]
     label 'Competitors'
   }.archive_unless_directed.also {
     label 'Competitors/Elance'
@@ -36,8 +24,16 @@ fs = GmailBritta.filterset(:me => [ 'josh@freelancer.com' ]) do
   # Freelancer
   filter {
     has [
-      {:or => FREELANCER_DOMAINS.map{|domain| "from:#{domain}"}},
-      {:or => TEST_EMAILS.map{|email| "to:#{email}"}}
+      {
+        :or => [
+          'freelancer.com'
+        ].map{|domain| "from:#{domain}"}
+      },
+      {
+        :or => [
+          'josh+freelancer@freelancer.com'
+        ].map{|email| "to:#{email}"}
+      }
     ]
     label 'Competitors'
   }.also {
@@ -50,7 +46,7 @@ fs = GmailBritta.filterset(:me => [ 'josh@freelancer.com' ]) do
   
   # Odesk
   filter {
-    has [ 'from:@odesk.com' ]
+    has [ 'from:odesk.com' ]
     label 'Competitors'
   }.archive_unless_directed.also {
     label 'Competitors/Odesk'
@@ -58,7 +54,7 @@ fs = GmailBritta.filterset(:me => [ 'josh@freelancer.com' ]) do
   
   # PeoplePerHour
   filter {
-    has [ 'from:@peopleperhour.com' ]
+    has [ 'from:peopleperhour.com' ]
     label 'Competitors'
   }.archive_unless_directed.also {
     label 'Competitors/PeoplePerHour'
@@ -82,14 +78,14 @@ fs = GmailBritta.filterset(:me => [ 'josh@freelancer.com' ]) do
       }
     ]
     label 'Tech'
-  }.also {
+  }.archive_unless_directed.also {
     label 'Tech/Articles'
   }
   
   # Daily stats
   filter {
     has [
-      'from:@freelancer.com',
+      'from:freelancer.com',
       'subject:"Daily Stats"'
     ]
     label 'Growth'
@@ -116,9 +112,10 @@ fs = GmailBritta.filterset(:me => [ 'josh@freelancer.com' ]) do
   # Dashboard bulk emails
   filter {
     has [ 'from:dashboard@freelancer.com' ]
-  }.archive_unless_directed.also {
+  }.also {
     has [ 'subject:"Emergency values"' ]
     label 'Bulk/Dashboard'
+    archive
   }
 end
 puts fs.generate
