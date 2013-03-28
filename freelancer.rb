@@ -6,9 +6,6 @@ require 'gmail-britta'
 #===============================================================================
 # Configuration
 #-------------------------------------------------------------------------------
-MY_EMAILS = [
-  'josh@freelancer.com'
-]
 TEST_EMAILS = [
   'josh+freelancer@freelancer.com'
 ]
@@ -18,7 +15,7 @@ FREELANCER_DOMAINS = [
 ]
 #===============================================================================
 
-fs = GmailBritta.filterset(:me => MY_EMAILS) do
+fs = GmailBritta.filterset(:me => [ 'josh@freelancer.com' ]) do
   # Competitor coverage
   filter {
     has [
@@ -30,7 +27,7 @@ fs = GmailBritta.filterset(:me => MY_EMAILS) do
   
   # Elance
   filter {
-    has ['from:@elance.com']
+    has [ 'from:@elance.com' ]
     label 'Competitors'
   }.archive_unless_directed.also {
     label 'Competitors/Elance'
@@ -46,14 +43,14 @@ fs = GmailBritta.filterset(:me => MY_EMAILS) do
   }.also {
     label 'Competitors/Freelancer'
   }.also {
-    has ['subject:"Latest projects and contests matching your skills"']
+    has [ 'subject:"Latest projects and contests matching your skills"' ]
     archive
     mark_read
   }
   
   # Odesk
   filter {
-    has ['from:@odesk.com']
+    has [ 'from:@odesk.com' ]
     label 'Competitors'
   }.archive_unless_directed.also {
     label 'Competitors/Odesk'
@@ -61,25 +58,29 @@ fs = GmailBritta.filterset(:me => MY_EMAILS) do
   
   # PeoplePerHour
   filter {
-    has ['from:@peopleperhour.com']
+    has [ 'from:@peopleperhour.com' ]
     label 'Competitors'
   }.archive_unless_directed.also {
     label 'Competitors/PeoplePerHour'
   }.also {
-    has ['subject:"New Jobs match your search results"']
+    has [ 'subject:"New Jobs match your search results"' ]
     archive
     mark_read
   }
   
   # Tech
   filter {
-    has [{:or => [
-      'http://techcrunch.com',
-      'http://venturebeat.com',
-      'http://www.theverge.com',
-      'http://www.buzzfeed.com',
-      'http://www.seomez.org'
-    ]}]
+    has [
+      {
+        :or => [
+          'http://techcrunch.com',
+          'http://venturebeat.com',
+          'http://www.theverge.com',
+          'http://www.buzzfeed.com',
+          'http://www.seomez.org'
+        ]
+      }
+    ]
     label 'Tech'
   }.also {
     label 'Tech/Articles'
@@ -99,20 +100,24 @@ fs = GmailBritta.filterset(:me => MY_EMAILS) do
   # Bulk emails
   filter {
     has [
-      {:or => ['www-data@freelancer.com'].map{|email| "from:#{email}"}}
+      {
+        :or => [
+          'www-data@freelancer.com'
+        ].map{|email| "from:#{email}"}
+      }
     ]
     label 'Bulk'
   }.archive_unless_directed.also {
-    has ['subject:"rejoined memberships"']
+    has [ 'subject:"rejoined memberships"' ]
     archive
     mark_read
   }
   
   # Dashboard bulk emails
   filter {
-    has ['from:dashboard@freelancer.com']
+    has [ 'from:dashboard@freelancer.com' ]
   }.archive_unless_directed.also {
-    has ['subject:"Emergency values"']
+    has [ 'subject:"Emergency values"' ]
     label 'Bulk/Dashboard'
   }
 end
