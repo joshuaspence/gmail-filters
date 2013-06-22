@@ -3,12 +3,11 @@
 require 'bundler/setup'
 require 'gmail-britta'
 
-fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
+fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
                                     'joshua@joshuaspence.com',
                                     'josh@joshuaspence.com.au',
-                                    'joshua@joshuaspence.com.au',
-                                    'josh@freelancer.com' ]) do
-  
+                                    'joshua@joshuaspence.com.au']) do
+
   # Bank: Commonwealth Bank
   filter {
     has [{:or => [
@@ -16,8 +15,10 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
       'commonwealthawards.com.au',
     ].map{|email| "from:#{email}"}}]
     label 'Bank'
-  }.archive_unless_directed.also {
-    # Bank statements
+  }.archive_unless_directed
+
+  # Bank: Commonwealth Bank (Statements)
+  filter {
     has [
       'from:NetBankNotification@cba.com.au',
       {:or => [
@@ -27,43 +28,55 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
       ].map{|subject| "subject:\"#{subject}\""}},
     ]
     label 'Invoices'
+  }.also {
+    label 'Bank'
+  }.also {
     mark_important
     star
   }
 
   # Employment: Howard and Sons
   filter {
-    has [{:or => [
-      'howardsfireworks.com.au',
-      'chris@mbjtech.com.au',
-    ].map{|email| "from:#{email}"}}]
+    has ['from:howardsfireworks.com.au']
     label 'Employment/Howard and Sons'
   }.also {
     label 'Employment'
-  }.also {
-    # Payslips
-    has [{:or => [
-      'Payslip',
-      'From Howard & Sons Pyrotechnics (Displays) PL',
-    ].map{|subject| "subject:\"#{subject}\""}}]
+  }
+
+  # Employment: Howard and Sons (Payslips)
+  filter {
+    has [
+      'from:kayla@howardsfireworks.com.au',
+      'subject:"From Howard & Sons Pyrotechnics (Displays) PL"',
+      '"Pay Slip"',
+      'has:attachment',
+    ]
     label 'Employment/Payslips'
+  }.also {
+    label 'Employment/Howard and Sons'
+  }.also {
     mark_important
     star
   }
 
-  # Employment: LinkedIn
+  # Employment: Howard and Sons (Roster)
   filter {
-    has [{:or => [
-      'jobs-listings@linkedin.com',
-    ].map{|email| "from:#{email}"}}]
-    label 'Employment'
-  }.archive_unless_directed
+    has [
+      'from:bang@howardsfireworks.com.au',
+      'subject:"Roster"',
+      'has:attachment',
+    ]
+    label 'Employment/Howard and Sons'
+  }.also {
+    archive
+  }
 
   # Family
   filter {
     has [{:or => [
       'mspence@thehills.nsw.gov.au',
       'spencej@bigpond.net.au',
+      'pink_rayne911@hotmail.com',
       'lisson@optusnet.com.au',
     ].map{|email| "from:#{email}"}}]
     label 'Family'
@@ -74,10 +87,31 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
     has [{:or => [
       'brownells.com',
       'cleaverfirearms.com',
+      'gunsngear.com.au',
       'safarifirearms.com.au',
     ].map{|email| "from:#{email}"}}]
     label 'Firearms/Dealers'
   }.archive_unless_directed.also {
+    label 'Firearms'
+  }
+
+  # Firearms: Political
+  filter {
+    has [{:or => [
+      'Robert.Borsak@parliament.nsw.gov.au',
+      'Robert.Brown@parliament.nsw.gov.au',
+    ].map{|email| "from:#{email}"}}]
+    label 'Firearms'
+  }.archive_unless_directed
+
+  # Firearms: Registry
+  filter {
+    has [{:or => [
+      'dealers@police.nsw.gov.au',
+      'firearmsenq@police.nsw.gov.au',
+    ].map{|email| "from:#{email}"}}]
+    label 'Firearms/Registry'
+  }.also {
     label 'Firearms'
   }
 
@@ -87,7 +121,9 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
       'sportingshooter@broadcast.yaffa.com.au',
     ].map{|email| "from:#{email}"}}]
     label 'Firearms'
-  }.archive_unless_directed
+  }.archive_unless_directed.also {
+    label 'Bulk/Newsletters'
+  }
 
   # Invoices: eBay
   filter {
@@ -102,6 +138,7 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
       ].map{|subject| "subject:\"#{subject}\""}},
     ]
     label 'Invoices'
+  }.also {
     mark_important
     star
   }
@@ -121,6 +158,7 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
       ].map{|subject| "subject:\"#{subject}\""}}
     ]
     label 'Invoices'
+  }.also {
     mark_important
     star
   }
@@ -129,9 +167,13 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
   filter {
     has [
       'from:service@paypal.com.au',
-      'subject:"Receipt for your payment"',
+      {:or => [
+        'Receipt for your payment',
+        'You sent an automatic payment',
+      ].map{|subject| "subject:\"#{subject}\""}},
     ]
     label 'Invoices'
+  }.also {
     mark_important
     star
   }
@@ -144,18 +186,8 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
     ]
     label 'Notes'
   }.also {
-    mark_important
     never_spam
     star
-  }
-
-  # Social: about.me
-  filter {
-    has [{:or => [
-      'aboutme@about.me',
-    ].map{|email| "from:#{email}"}}]
-    archive
-    label 'Bulk/Social'
   }
 
   # Social: Facebook
@@ -163,8 +195,9 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
     has [{:or => [
       'facebookmail.com',
     ].map{|email| "from:#{email}"}}]
-    archive
     label 'Bulk/Social'
+  }.also {
+    archive
   }
 
   # Social: Foursquare
@@ -172,8 +205,9 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
     has [{:or => [
       'noreply@foursquare.com',
     ].map{|email| "from:#{email}"}}]
-    archive
     label 'Bulk/Social'
+  }.also {
+    archive
   }
 
   # Social: Google+
@@ -181,8 +215,9 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
     has [{:or => [
       'plus.google.com',
     ].map{|email| "from:#{email}"}}]
-    archive
     label 'Bulk/Social'
+  }.also {
+    archive
   }
 
   # Social: LinkedIn
@@ -200,8 +235,12 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
       'updates@linkedin.com',
       'welcome@linkedin.com',
     ].map{|email| "from:#{email}"}}]
-    archive
     label 'Bulk/Social'
+  }.also {
+    has_not [{:or => [
+      'hit-reply@linkedin.com',
+    ].map{|email| "from:#{email}"}}]
+    archive
   }
 
   # Social: Twitter
@@ -209,28 +248,33 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
     has [{:or => [
       'postmaster.twitter.com',
     ].map{|email| "from:#{email}"}}]
-    archive
     label 'Bulk/Social'
+  }.also {
+    archive
   }
 
   # Newsletters
   filter {
     # Generic
     has [{:or => [
-      'opt-out',
-      'unsubscribe',
-      'viewing the newsletter',
-      'to view this email as a web page',
+      'email campaigns',
+      'latest news',
+      'manage preferences',
+      'notification settings',
+      'product announcements',
+      'product updates',
       'read the online version',
-      'newsletter',
-      'newsletters',
-      'subscriptions',
+      'remove yourself from this list',
+      'unsubscribe',
+      'unsubscribe from this list',
+      'unsubscribe from this mailing list',
+      'update subscription preferences',
+      'viewing the newsletter',
     ].map{|text| "\"#{text}\""}}]
   }.also {
     # eBay exclusion
     has_not [
       'from:ebay@ebay.com.au',
-      'subject:"Your eBay item sold"',
     ]
   }.also {
     # LinkedIn exclusion
@@ -242,14 +286,28 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
   }.also {
     # Telstra exclusion
     has_not [
-      'from:online.telstra.com.au',
-      'subject:"Your Telstra Email Bill"',
+      {:or => [
+        'online.telstra.com',
+        'online.telstra.com.au',
+      ].map{|email| "from:#{email}"}},
+      'subject:"Telstra bill for account"',
     ]
   }.also {
-    archive
     label 'Bulk/Newsletters'
+  }.also {
+    archive
     mark_unimportant
   }
+
+  # Newsletters: Blacklist
+  filter {
+      has [{:or => [
+        'news.telstra.com',
+      ].map{|email| "from:#{email}"}}]
+    }.also {
+      archive
+      mark_unimportant
+    }
 
   # Orders: Amazon
   filter {
@@ -262,7 +320,6 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
       'ship-confirm@amazon.co.uk',
     ].map{|email| "from:#{email}"}}]
     label 'Orders'
-    mark_important
   }
 
   # Orders: eBay
@@ -273,10 +330,9 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
         'Confirmation of your order',
         'Updates for your purchase',
         'Your invoice for eBay purchases',
-      ].map{|subject| "subject:#{subject}"}},
+      ].map{|subject| "subject:\"#{subject}\""}},
     ]
     label 'Orders'
-    mark_important
   }
 
   # Orders: Generic
@@ -287,25 +343,25 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
       'shipping confirmation',
       'order has shipped',
       'tracking number',
-    ]}]
+    ].map{|text| "\"#{text}\""}}]
     label 'Orders'
-    mark_important
   }
 
   # Phone: Telstra
   filter {
-    has [ 'from:online.telstra.com.au' ]
+    has [{:or => [
+      'online.telstra.com',
+      'online.telstra.com.au',
+    ].map{|email| "from:#{email}"}}]
     label 'Phone'
-  }.also {
+  }.archive_unless_directed.also {
     # Phone bill
     has [
-      'from:info@online.telstra.com.au',
-      {:or => [
-        'Telstra Bill - Arrival Notification',
-        'Your Telstra Email Bill',
-      ].map{|subject| "subject:\"#{subject}\""}},
+      'subject:"Telstra bill for account"',
+      'has:attachment',
     ]
     label 'Invoices'
+  }.also {
     mark_important
     star
   }
@@ -314,8 +370,8 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
   filter {
     has [{:or => [
       [
-        'usyd.edu.au',
         'sydney.edu.au',
+        'usyd.edu.au',
       ].map{|email| "from:#{email}"},
       'to:jspe9969@uni.sydney.edu.au',
     ]}]
@@ -334,21 +390,29 @@ fs = GmailBritta.filterset(:me => [ 'josh@joshuaspence.com',
 
   # Utility: Emails sent to my old email address
   filter {
-    has [ 'to:joshua.james.spence@gmail.com' ]
+    has ['to:joshua.james.spence@gmail.com']
     label 'Bulk/Sent to old email address'
   }
 
   # Vehicle: Roam
   filter {
-    has [ 'roam.com.au' ]
+    has ['roam.com.au']
     label 'Vehicle'
   }.archive_unless_directed
 
-  # Vehicle: RTA
+  # Vehicle: Roam (Statements)
   filter {
-    has [ 'from:rta.nsw.gov.au' ]
+    has [
+      'from:enquiries@e.roam.com.au',
+      'subject:"Your Roam Statement is available online"',
+    ]
+    label 'Invoices'
+  }.also {
     label 'Vehicle'
-  }.archive_unless_directed
+  }.also {
+    mark_important
+    star
+  }
 
   # Web: Amazon Web Services
   filter {
