@@ -16,10 +16,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       'commonwealthawards.com.au',
     ].map{|email| "from:#{email}"}}]
     label 'Bank'
-  }.archive_unless_directed
-
-  # Bank: Commonwealth Bank (Statements)
-  filter {
+  }.archive_unless_directed.also {
     has [
       'from:NetBankNotification@cba.com.au',
       {:or => [
@@ -29,9 +26,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       ].map{|subject| "subject:\"#{subject}\""}},
     ]
     label 'Invoices'
-  }.also {
-    label 'Bank'
-  }.also {
     mark_important
     star
   }
