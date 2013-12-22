@@ -4,9 +4,10 @@ require 'bundler/setup'
 require 'gmail-britta'
 
 fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
-                                    'joshua@joshuaspence.com',
-                                    'josh@joshuaspence.com.au',
-                                    'joshua@joshuaspence.com.au']) do
+                                   'joshua@joshuaspence.com',
+                                   'josh@joshuaspence.com.au',
+                                   'joshua@joshuaspence.com.au',
+                                  ]) do
 
   # Bank: Commonwealth Bank
   filter {
