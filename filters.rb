@@ -171,18 +171,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     star
   }
 
-  # Notes
-  filter {
-    has [
-      {:or => me.map{|email| "from:#{email}"}},
-      {:or => me.map{|email| "to:#{email}"}}
-    ]
-    label 'Notes'
-  }.also {
-    never_spam
-    star
-  }
-
   # Social: Facebook
   filter {
     has [{:or => [
