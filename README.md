@@ -32,7 +32,7 @@ Instructions
 ------------
 To generate the [Gmail][gmail] filters in XML format, just run
 `ruby filters.rb`. The filters will be printed to `stdout`. Pipe this output to
-a file and import into [Gmail][gmail].
+a file and import into [Gmail][gmail]. Voilà!
 
 Further Information
 -------------------
