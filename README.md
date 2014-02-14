@@ -1,7 +1,8 @@
 Gmail Filters
 =============
-A collection of [Gmail][gmail] filters that I use. The XML filters to be
-imported into [Gmail][gmail] are generated using [gmail-britta][github].
+A collection of [Gmail][gmail] filters that I use for personal emails. The XML
+filters to be imported into [Gmail][gmail] are generated using
+[gmail-britta][github].
 
 License
 -------
@@ -10,7 +11,7 @@ Copyright &copy; 2013 Joshua Spence &lt;<josh@joshuaspence.com>&gt;
 This work is free. You can redistribute it and/or modify it under the terms of
 the [Do What The Fuck You Want To Public License][wtfpl], Version 2, as
 published by [Sam Hocevar](mailto:sam@hocevar.net). See the
-[LICENSE.md](LICENSE.md) file for more details.
+[license file](LICENSE.md) for more details.
 
 Dependencies
 ------------
@@ -30,7 +31,8 @@ gem install gmail-britta
 Instructions
 ------------
 To generate the [Gmail][gmail] filters in XML format, just run
-`ruby filters.rb`.
+`ruby filters.rb`. The filters will be printed to `stdout`. Pipe this output to
+a file and import into [Gmail][gmail].
 
 Further Information
 -------------------
