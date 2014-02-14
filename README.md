@@ -18,14 +18,12 @@ To create the [Gmail][gmail] filters (in XML format), the following packages are
 required:
 
 * `ruby` (>= 1.9.2)
-* `bundler` (>= 1.2.0)
 * `gmail-britta` (>= 0.1.6)
 
 These packages can be installed using the following commands:
 
 ```shell
 apt-get install ruby
-gem install bundler
 gem install gmail-britta
 ```
 

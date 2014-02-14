@@ -1,4 +1,3 @@
-require 'bundler/setup'
 require 'gmail-britta'
 
 fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
