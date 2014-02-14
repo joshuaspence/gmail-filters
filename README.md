@@ -10,8 +10,8 @@ Copyright &copy; 2013 Joshua Spence &lt;<josh@joshuaspence.com>&gt;
 
 This work is free. You can redistribute it and/or modify it under the terms of
 the [Do What The Fuck You Want To Public License][wtfpl], Version 2, as
-published by [Sam Hocevar](mailto:sam@hocevar.net). See the
-[license file](LICENSE.md) for more details.
+published by [Sam Hocevar](sam@hocevar.net). See the [license file](LICENSE.md)
+for more details.
 
 Dependencies
 ------------
