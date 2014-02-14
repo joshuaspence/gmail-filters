@@ -5,7 +5,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
                                    'josh@joshuaspence.com.au',
                                    'joshua@joshuaspence.com.au',
                                   ]) do
-
   # Bank: Commonwealth Bank
   filter {
     has [{:or => [
