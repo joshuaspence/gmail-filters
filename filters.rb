@@ -10,7 +10,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     has [{:or => [
       'cba.com.au',
       'commonwealthawards.com.au',
-    ].map{|email| "from:#{email}"}}]
+    ].map{|domain| "from:#{domain}"}}]
     label 'Bank'
   }.archive_unless_directed.also {
     has [
