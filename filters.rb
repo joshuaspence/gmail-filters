@@ -377,8 +377,10 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     has [{:or => [
       'no-reply-aws@amazonaws.com',
     ].map{|email| "from:#{email}"}}]
+    label 'Web/Amazon Web Services'
+  }.archive_unless_directed.also {
     label 'Web'
-  }.archive_unless_directed
+  }
 
   # Web: Digital Pacific
   filter {
