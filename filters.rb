@@ -387,7 +387,9 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       'noreply@digitalpacific.com.au',
       'support@digitalpacific.com.au',
     ].map{|email| "from:#{email}"}}]
+    label 'Web/Digital Pacific'
+  }.archive_unless_directed.also {
     label 'Web'
-  }.archive_unless_directed
+  }
 end
 puts fs.generate
