@@ -193,6 +193,12 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Projects/less.js'
   }
 
+  # Social: Calendar
+  filter {
+    has ['filename:invite.ics']
+    label 'Social/Calendar'
+  }
+
   # Social: Facebook
   filter {
     has [{:or => [
