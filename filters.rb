@@ -278,41 +278,25 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     mark_unimportant
   }
 
-  # Orders: Amazon
+  # Orders
   filter {
     has [{:or => [
-      'auto-confirm@amazon.com',
-      'order-update@amazon.com',
-      'ship-confirm@amazon.com',
-      'auto-confirm@amazon.co.uk',
-      'order-update@amazon.co.uk',
-      'ship-confirm@amazon.co.uk',
-    ].map{|email| "from:#{email}"}}]
-    label 'Orders'
-  }
-
-  # Orders: eBay
-  filter {
-    has [
-      'from:ebay@ebay.com.au',
       {:or => [
-        'Confirmation of your order',
-        'Updates for your purchase',
-        'Your invoice for eBay purchases',
-      ].map{|subject| "subject:\"#{subject}\""}},
-    ]
-    label 'Orders'
-  }
+        'Confirmation number',
+        'Order confirmation',
+        'Order details',
+        'Order has shipped',
+        'Shipping confirmation',
+        'Tracking number',
+      ].map{|text| "\"#{text}\""}},
 
-  # Orders: Generic
-  filter {
-    has [{:or => [
-      'order number',
-      'confirmation',
-      'shipping confirmation',
-      'order has shipped',
-      'tracking number',
-    ].map{|text| "\"#{text}\""}}]
+      # Blacklisted senders
+      {:or => [
+        'auto-confirm@amazon.com',
+        'order-update@amazon.com',
+        'ship-confirm@amazon.com',
+      ].map{|email| "from:#{email}"}},
+    ]}]
     label 'Orders'
   }
 
