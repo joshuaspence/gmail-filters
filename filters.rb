@@ -381,10 +381,10 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   # University
   filter {
     has [{:or => [
-      [
+      {:or => [
         'sydney.edu.au',
         'usyd.edu.au',
-      ].map{|email| "from:#{email}"},
+      ].map{|email| "from:#{email}"}},
       'to:jspe9969@uni.sydney.edu.au',
     ]}]
     label 'University'
