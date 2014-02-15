@@ -29,8 +29,14 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   bank.also {
     has [
       'from:NetBankNotification@cba.com.au',
-      '"Your scheduled transfer was successfully processed."',
+      {:or => [
+        '"We were unable to process one of your scheduled transfers."',
+        '"Your scheduled transfer was successfully processed."',
+      ]}
     ]
+    label 'Bank/Transfers'
+  }.also {
+    has ['"Your scheduled transfer was successfully processed."']
     mark_read
   }
 
