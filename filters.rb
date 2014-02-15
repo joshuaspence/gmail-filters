@@ -120,55 +120,46 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Howard and Sons/Roster'
   }
 
-  # Invoices: eBay
+  # Invoices
   filter {
-    has [
+    has [{:or => [
       {:or => [
-        'billing@ebay.com.au',
-        'ebay@ebay.com.au',
-      ].map{|email| "from:#{email}"}},
-      {:or => [
-        'Your invoice for eBay purchases',
-        'eBay Invoice Notification',
+        'Payment Receipt',
+        'Tax Invoice',
+        'Receipt for Purchase',
+        'Order Receipt',
       ].map{|subject| "subject:\"#{subject}\""}},
-    ]
-    label 'Invoices'
-  }.also {
-    mark_important
-    star
-  }
 
-  # Invoices: Generic
-  filter {
-    has [
       {:or => [
-        'Receipt',
-        'Invoice',
-        'has:attachment',
+        'Tax Invoice',
+      ].map{|text| "\"#{text}\""}},
+
+      # Blacklisted senders
+      {:or => [
+        [
+          'from:billing@ebay.com.au',
+          'subject:"eBay Invoice Notification"',
+        ],
+        [
+          'from:ebay@ebay.com.au',
+          'subject:"Your invoice for eBay purchases"',
+        ],
+        [
+          'from:service@paypal.com.au',
+          'subject:"Receipt for your payment"',
+        ],
+        [
+          'from:enquiries@e.roam.com.au',
+          'subject:"Your Roam Statement is available online"',
+        ],
+        [
+          'from:online.telstra.com',
+          'subject:"Telstra bill for account"',
+          'has:attachment',
+        ],
       ]},
-      {:or => [
-        'Invoice',
-        'Receipt',
-        'Order',
-      ].map{|subject| "subject:\"#{subject}\""}}
-    ]
+    ]}]
     label 'Invoices'
-  }.also {
-    mark_important
-    star
-  }
-
-  # Invoices: Paypal
-  filter {
-    has [
-      'from:service@paypal.com.au',
-      {:or => [
-        'Receipt for your payment',
-        'You sent an automatic payment',
-      ].map{|subject| "subject:\"#{subject}\""}},
-    ]
-    label 'Invoices'
-  }.also {
     mark_important
     star
   }
@@ -379,17 +370,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       'telstradirectdebit@in.telstra.com.au',
     ].map{|email| "from:#{email}"}}]
     label 'Phone'
-  }.archive_unless_directed.also {
-    # Phone bill
-    has [
-      'from:online.telstra.com',
-      'subject:"Telstra bill for account"',
-      'has:attachment',
-    ]
-    label 'Invoices'
-    mark_important
-    star
-  }
+  }.archive_unless_directed
 
   # University
   filter {
@@ -407,15 +388,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   filter {
     has ['roam.com.au']
     label 'Vehicle'
-  }.archive_unless_directed.also {
-    has [
-      'from:enquiries@e.roam.com.au',
-      'subject:"Your Roam Statement is available online"',
-    ]
-    label 'Invoices'
-    mark_important
-    star
-  }
+  }.archive_unless_directed
 
   # Web: Amazon Web Services
   filter {
