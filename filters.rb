@@ -372,6 +372,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   }.archive_unless_directed.also {
     # Phone bill
     has [
+      'from:online.telstra.com',
       'subject:"Telstra bill for account"',
       'has:attachment',
     ]
