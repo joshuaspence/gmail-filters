@@ -213,6 +213,16 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Projects/less.js'
   }
 
+  # Projects: libphutil
+  github.also {
+    has ['list:libphutil.facebook.github.com']
+    label 'Projects/libphutil'
+  }
+  phabricator.also {
+    has ['"ARCANIST PROJECT libphutil"']
+    label 'Projects/libphutil'
+  }
+
   # Social: Calendar
   filter {
     has ['filename:invite.ics']
