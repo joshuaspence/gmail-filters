@@ -363,8 +363,10 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   # Phone: Telstra
   filter {
     has [{:or => [
+      'mobiledatausage@telstra.com',
       'online.telstra.com',
-      'online.telstra.com.au',
+      'telstra.accounts@news.telstra.com',
+      'telstradirectdebit@in.telstra.com.au',
     ].map{|email| "from:#{email}"}}]
     label 'Phone'
   }.archive_unless_directed.also {
