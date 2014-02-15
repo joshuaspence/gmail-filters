@@ -17,9 +17,8 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     has [
       'from:NetBankNotification@cba.com.au',
       {:or => [
-        'new statement',
-        'new account statement',
-        'new credit card statement',
+        'New account statement',
+        'New credit card statement',
       ].map{|subject| "subject:\"#{subject}\""}},
     ]
     label 'Bank/Statements'
