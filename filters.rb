@@ -44,17 +44,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     mark_read
   }
 
-  # Family
-  filter {
-    has [{:or => [
-      'mspence@thehills.nsw.gov.au',
-      'spencej@bigpond.net.au',
-      'pink_rayne911@hotmail.com',
-      'lisson@optusnet.com.au',
-    ].map{|email| "from:#{email}"}}]
-    label 'Family'
-  }
-
   # Firearms: Dealers
   filter {
     has [{:or => [
