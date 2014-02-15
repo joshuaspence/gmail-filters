@@ -330,7 +330,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       'has:attachment',
     ]
     label 'Invoices'
-  }.also {
     mark_important
     star
   }
