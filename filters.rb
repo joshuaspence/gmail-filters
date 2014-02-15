@@ -281,7 +281,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       ].map{|email| "from:#{email}"}},
     ]
     archive
-    label 'Bulk/Newsletters'
+    label 'Newsletters'
     mark_unimportant
   }
 
