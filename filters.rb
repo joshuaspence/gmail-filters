@@ -187,6 +187,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       # Whitelisted senders
       {:or => [
         'messages-noreply@linkedin.com',
+        'notifications-noreply@linkedin.com',
         'NetBankNotification@cba.com.au',
       ].map{|email| "from:#{email}"}},
     ]
