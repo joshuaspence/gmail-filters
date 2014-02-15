@@ -353,21 +353,16 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Bulk/Sent to old email address'
   }
 
-  # Vehicle: Roam
+  # Vehicle (Roam)
   filter {
     has ['roam.com.au']
     label 'Vehicle'
-  }.archive_unless_directed
-
-  # Vehicle: Roam (Statements)
-  filter {
+  }.archive_unless_directed.also {
     has [
       'from:enquiries@e.roam.com.au',
       'subject:"Your Roam Statement is available online"',
     ]
     label 'Invoices'
-  }.also {
-    label 'Vehicle'
     mark_important
     star
   }
