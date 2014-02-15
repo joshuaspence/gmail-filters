@@ -347,12 +347,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'University'
   }.archive_unless_directed
 
-  # Utility: Emails sent to my old email address
-  filter {
-    has ['to:joshua.james.spence@gmail.com']
-    label 'Bulk/Sent to old email address'
-  }
-
   # Vehicle (Roam)
   filter {
     has ['roam.com.au']
