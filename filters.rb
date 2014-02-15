@@ -32,7 +32,11 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       {:or => [
         '"We were unable to process one of your scheduled transfers."',
         '"Your scheduled transfer was successfully processed."',
-      ]}
+      ]},
+      '"From account:"',
+      '"To account:"',
+      '"Description:"',
+      '"Amount:"',
     ]
     archive
     label 'Bank/Transfers'
