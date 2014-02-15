@@ -126,8 +126,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       'sportingshooter@broadcast.yaffa.com.au',
     ].map{|email| "from:#{email}"}}]
     label 'Firearms'
-  }.archive_unless_directed.also {
-    label 'Bulk/Newsletters'
   }
 
   # Invoices: eBay
@@ -256,57 +254,34 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
 
   # Newsletters
   filter {
-    # Generic
     has [{:or => [
-      'email campaigns',
-      'latest news',
-      'manage preferences',
-      'notification settings',
-      'product announcements',
-      'product updates',
-      'read the online version',
-      'remove yourself from this list',
-      'unsubscribe',
-      'unsubscribe from this list',
-      'unsubscribe from this mailing list',
-      'update subscription preferences',
-      'viewing the newsletter',
-    ].map{|text| "\"#{text}\""}}]
-  }.also {
-    # eBay exclusion
-    has_not [
-      'from:ebay@ebay.com.au',
-    ]
-  }.also {
-    # LinkedIn exclusion
-    has_not [{:or => [
-      'connections@linkedin.com',
-      'hit-reply@linkedin.com',
-      'member@linkedin.com',
-    ].map{|email| "from:#{email}"}}]
-  }.also {
-    # Telstra exclusion
-    has_not [
       {:or => [
-        'online.telstra.com',
-        'online.telstra.com.au',
+        'If you no longer want us to contact you',
+        'Rather not receive future emails',
+        'Remove yourself from this list',
+        'To stop receiving emails',
+        'Unsubscribe here',
+        'Unsubscribe from our mailing list',
+        'Unsubscribe from this list',
+        'Update subscription preferences',
+      ].map{|text| "\"#{text}\""}},
+
+      # Blacklisted senders
+      {:or => [
+        'online@email.commonwealthawards.com.au',
+        'sportingshooter@broadcast.yaffa.com.au',
       ].map{|email| "from:#{email}"}},
-      'subject:"Telstra bill for account"',
+    ]}]
+    has_not [
+      # Whitelisted senders
+      {:or => [
+        'NetBankNotification@cba.com.au',
+      ].map{|email| "from:#{email}"}},
     ]
-  }.also {
     archive
     label 'Bulk/Newsletters'
     mark_unimportant
   }
-
-  # Newsletters: Blacklist
-  filter {
-      has [{:or => [
-        'news.telstra.com',
-      ].map{|email| "from:#{email}"}}]
-      archive
-      mark_unimportant
-    }
 
   # Orders: Amazon
   filter {
