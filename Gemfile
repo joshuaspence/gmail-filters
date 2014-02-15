@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 
-gem 'gmail-britta'
+gem 'gmail-britta', '~>0.1.6'
