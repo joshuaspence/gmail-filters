@@ -57,7 +57,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       'has:attachment',
     ]
     label 'Employment/Payslips'
-  }.also {
     mark_important
     star
   }
@@ -69,9 +68,8 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       'subject:"Roster"',
       'has:attachment',
     ]
-    label 'Employment/Howard and Sons'
-  }.also {
     archive
+    label 'Employment/Howard and Sons'
   }
 
   # Family
@@ -186,9 +184,8 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     has [{:or => [
       'facebookmail.com',
     ].map{|email| "from:#{email}"}}]
-    label 'Social/Facebook'
-  }.also {
     archive
+    label 'Social/Facebook'
   }
 
   # Social: Foursquare
@@ -196,9 +193,8 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     has [{:or => [
       'noreply@foursquare.com',
     ].map{|email| "from:#{email}"}}]
-    label 'Social/Foursquare'
-  }.also {
     archive
+    label 'Social/Foursquare'
   }
 
   # Social: Google+
@@ -206,9 +202,8 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     has [{:or => [
       'plus.google.com',
     ].map{|email| "from:#{email}"}}]
-    label 'Social/Google+'
-  }.also {
     archive
+    label 'Social/Google+'
   }
 
   # Social: LinkedIn
@@ -239,9 +234,8 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     has [{:or => [
       'postmaster.twitter.com',
     ].map{|email| "from:#{email}"}}]
-    label 'Social/Twitter'
-  }.also {
     archive
+    label 'Social/Twitter'
   }
 
   # Newsletters
@@ -284,9 +278,8 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       'subject:"Telstra bill for account"',
     ]
   }.also {
-    label 'Bulk/Newsletters'
-  }.also {
     archive
+    label 'Bulk/Newsletters'
     mark_unimportant
   }
 
@@ -295,7 +288,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       has [{:or => [
         'news.telstra.com',
       ].map{|email| "from:#{email}"}}]
-    }.also {
       archive
       mark_unimportant
     }
@@ -400,7 +392,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Invoices'
   }.also {
     label 'Vehicle'
-  }.also {
     mark_important
     star
   }
