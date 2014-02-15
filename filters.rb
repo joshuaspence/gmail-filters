@@ -352,16 +352,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'University'
   }.archive_unless_directed
 
-  # Utility: Blacklist (MSY newsletter)
-  filter {
-    has [
-      'from:noreply@news.msy.com.au',
-      'to:joshua.james.spence@gmail.com',
-      'newsletter',
-    ]
-    delete_it
-  }
-
   # Utility: Emails sent to my old email address
   filter {
     has ['to:joshua.james.spence@gmail.com']
