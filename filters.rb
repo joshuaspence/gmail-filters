@@ -183,6 +183,12 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     star
   }
 
+  # Projects (GitHub)
+  github = filter {
+    has ['from:notifications@github.com']
+    label 'Projects'
+  }
+
   # Social: Facebook
   filter {
     has [{:or => [
