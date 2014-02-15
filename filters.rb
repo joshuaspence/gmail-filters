@@ -84,8 +84,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       'sportingshooter@broadcast.yaffa.com.au',
     ].map{|email| "from:#{email}"}}]
     label 'Firearms/Newsletters'
-  }.also {
-    label 'Firearms'
   }
 
   # Howard and Sons
