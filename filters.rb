@@ -44,38 +44,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     mark_read
   }
 
-  # Employment: Howard and Sons
-  filter {
-    has ['from:howardsfireworks.com.au']
-    label 'Employment/Howard and Sons'
-  }.also {
-    label 'Employment'
-  }
-
-  # Employment: Howard and Sons (Payslips)
-  filter {
-    has [
-      'from:kayla@howardsfireworks.com.au',
-      'subject:"From Howard & Sons Pyrotechnics (Displays) PL"',
-      '"Pay Slip"',
-      'has:attachment',
-    ]
-    label 'Employment/Payslips'
-    mark_important
-    star
-  }
-
-  # Employment: Howard and Sons (Roster)
-  filter {
-    has [
-      'from:bang@howardsfireworks.com.au',
-      'subject:"Roster"',
-      'has:attachment',
-    ]
-    archive
-    label 'Employment/Howard and Sons'
-  }
-
   # Family
   filter {
     has [{:or => [
@@ -126,6 +94,38 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       'sportingshooter@broadcast.yaffa.com.au',
     ].map{|email| "from:#{email}"}}]
     label 'Firearms'
+  }
+
+  # Howard and Sons
+  filter {
+    has ['from:howardsfireworks.com.au']
+    label 'Howard and Sons'
+  }.also {
+    label 'Employment'
+  }
+
+  # Howard and Sons: Payslips
+  filter {
+    has [
+      'from:kayla@howardsfireworks.com.au',
+      'subject:"From Howard & Sons Pyrotechnics (Displays) PL"',
+      '"Pay Slip"',
+      'has:attachment',
+    ]
+    label 'Howard and Sons/Payslips'
+    mark_important
+    star
+  }
+
+  # Howard and Sons: Roster
+  filter {
+    has [
+      'from:bang@howardsfireworks.com.au',
+      'subject:"Roster"',
+      'has:attachment',
+    ]
+    archive
+    label 'Howard and Sons/Roster'
   }
 
   # Invoices: eBay
