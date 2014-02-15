@@ -223,22 +223,18 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   # Social: LinkedIn
   filter {
     has [{:or => [
-      'connections@linkedin.com',
-      'e.linkedin.com',
       'group-digests@linkedin.com',
       'hit-reply@linkedin.com',
-      'invitations@linkedin.com',
-      'jobs-listings@linkedin.com',
-      'linkedin@em.linkedin.com',
+      'invitations-noreply@linkedin.com',
       'member@linkedin.com',
       'messages-noreply@linkedin.com',
-      'updates@linkedin.com',
-      'welcome@linkedin.com',
+      'notifications-noreply@linkedin.com',
     ].map{|email| "from:#{email}"}}]
     label 'Social/LinkedIn'
   }.also {
     has_not [{:or => [
       'hit-reply@linkedin.com',
+      'member@linkedin.com',
     ].map{|email| "from:#{email}"}}]
     archive
   }
