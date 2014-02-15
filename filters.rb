@@ -99,10 +99,10 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   # Howard and Sons: Payslips
   filter {
     has [
-      'from:kayla@howardsfireworks.com.au',
-      'subject:"From Howard & Sons Pyrotechnics (Displays) PL"',
-      '"Pay Slip"',
-      'has:attachment',
+      'from:noreply@xero.com',
+      'replyto:kelly@howardsfireworks.com.au',
+      "Here's your payslip",
+      'filename:PaySlip.pdf',
     ]
     label 'Howard and Sons/Payslips'
     mark_important
