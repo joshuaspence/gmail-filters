@@ -314,8 +314,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     ].map{|email| "from:#{email}"}}]
     archive
     label 'Social/Facebook'
-  }.also {
-    label 'Social'
   }
 
   # Social: Foursquare
@@ -325,8 +323,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     ].map{|email| "from:#{email}"}}]
     archive
     label 'Social/Foursquare'
-  }.also {
-    label 'Social'
   }
 
   # Social: Google+
@@ -336,8 +332,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     ].map{|email| "from:#{email}"}}]
     archive
     label 'Social/Google+'
-  }.also {
-    label 'Social'
   }
 
   # Social: LinkedIn
@@ -351,8 +345,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       'notifications-noreply@linkedin.com',
     ].map{|email| "from:#{email}"}}]
     label 'Social/LinkedIn'
-  }.also {
-    label 'Social'
   }.also {
     has_not [{:or => [
       'hit-reply@linkedin.com',
