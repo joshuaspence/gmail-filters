@@ -13,21 +13,6 @@ the [Do What The Fuck You Want To Public License][wtfpl], Version 2, as
 published by [Sam Hocevar](sam@hocevar.net). See the [license file](LICENSE.md)
 for more details.
 
-Dependencies
-------------
-To create the [Gmail][gmail] filters (in XML format), the following packages are
-required:
-
-* `ruby` (>= 1.9.2)
-* `gmail-britta` (>= 0.1.6)
-
-These packages can be installed using the following commands:
-
-```shell
-apt-get install ruby
-gem install gmail-britta
-```
-
 Instructions
 ------------
 To generate the [Gmail][gmail] filters in XML format, just run
