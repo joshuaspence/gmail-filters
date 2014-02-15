@@ -162,6 +162,71 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     star
   }
 
+  # Newsletters
+  filter {
+    has [{:or => [
+      {:or => [
+        'If you no longer want us to contact you',
+        'Rather not receive future emails',
+        'Remove yourself from this list',
+        'To stop receiving emails',
+        'Unsubscribe here',
+        'Unsubscribe from our mailing list',
+        'Unsubscribe from this list',
+        'Update subscription preferences',
+      ].map{|text| "\"#{text}\""}},
+
+      # Blacklisted senders
+      {:or => [
+        'admin@nramedia.org',
+        'online@email.commonwealthawards.com.au',
+        'sportingshooter@broadcast.yaffa.com.au',
+      ].map{|email| "from:#{email}"}},
+    ]}]
+    has_not [
+      # Whitelisted senders
+      {:or => [
+        'NetBankNotification@cba.com.au',
+      ].map{|email| "from:#{email}"}},
+    ]
+    archive
+    label 'Newsletters'
+    mark_unimportant
+  }
+
+  # Orders
+  filter {
+    has [{:or => [
+      {:or => [
+        'Confirmation number',
+        'Order confirmation',
+        'Order details',
+        'Order has shipped',
+        'Shipping confirmation',
+        'Tracking number',
+      ].map{|text| "\"#{text}\""}},
+
+      # Blacklisted senders
+      {:or => [
+        'auto-confirm@amazon.com',
+        'order-update@amazon.com',
+        'ship-confirm@amazon.com',
+      ].map{|email| "from:#{email}"}},
+    ]}]
+    label 'Orders'
+  }
+
+  # Phone: Telstra
+  filter {
+    has [{:or => [
+      'mobiledatausage@telstra.com',
+      'online.telstra.com',
+      'telstra.accounts@news.telstra.com',
+      'telstradirectdebit@in.telstra.com.au',
+    ].map{|email| "from:#{email}"}}]
+    label 'Phone'
+  }.archive_unless_directed
+
   # Projects (GitHub)
   github = filter {
     has ['from:notifications@github.com']
@@ -304,71 +369,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     archive
     label 'Social/Twitter'
   }
-
-  # Newsletters
-  filter {
-    has [{:or => [
-      {:or => [
-        'If you no longer want us to contact you',
-        'Rather not receive future emails',
-        'Remove yourself from this list',
-        'To stop receiving emails',
-        'Unsubscribe here',
-        'Unsubscribe from our mailing list',
-        'Unsubscribe from this list',
-        'Update subscription preferences',
-      ].map{|text| "\"#{text}\""}},
-
-      # Blacklisted senders
-      {:or => [
-        'admin@nramedia.org',
-        'online@email.commonwealthawards.com.au',
-        'sportingshooter@broadcast.yaffa.com.au',
-      ].map{|email| "from:#{email}"}},
-    ]}]
-    has_not [
-      # Whitelisted senders
-      {:or => [
-        'NetBankNotification@cba.com.au',
-      ].map{|email| "from:#{email}"}},
-    ]
-    archive
-    label 'Newsletters'
-    mark_unimportant
-  }
-
-  # Orders
-  filter {
-    has [{:or => [
-      {:or => [
-        'Confirmation number',
-        'Order confirmation',
-        'Order details',
-        'Order has shipped',
-        'Shipping confirmation',
-        'Tracking number',
-      ].map{|text| "\"#{text}\""}},
-
-      # Blacklisted senders
-      {:or => [
-        'auto-confirm@amazon.com',
-        'order-update@amazon.com',
-        'ship-confirm@amazon.com',
-      ].map{|email| "from:#{email}"}},
-    ]}]
-    label 'Orders'
-  }
-
-  # Phone: Telstra
-  filter {
-    has [{:or => [
-      'mobiledatausage@telstra.com',
-      'online.telstra.com',
-      'telstra.accounts@news.telstra.com',
-      'telstradirectdebit@in.telstra.com.au',
-    ].map{|email| "from:#{email}"}}]
-    label 'Phone'
-  }.archive_unless_directed
 
   # University
   filter {
