@@ -34,6 +34,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
         '"Your scheduled transfer was successfully processed."',
       ]}
     ]
+    archive
     label 'Bank/Transfers'
   }.also {
     has ['"Your scheduled transfer was successfully processed."']
