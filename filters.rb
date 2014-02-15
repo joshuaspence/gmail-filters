@@ -58,8 +58,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     ]
     label 'Employment/Payslips'
   }.also {
-    label 'Employment/Howard and Sons'
-  }.also {
     mark_important
     star
   }
