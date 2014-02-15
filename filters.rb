@@ -22,7 +22,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
         'new credit card statement',
       ].map{|subject| "subject:\"#{subject}\""}},
     ]
-    label 'Invoices'
+    label 'Bank/Statements'
     mark_important
     star
   }
