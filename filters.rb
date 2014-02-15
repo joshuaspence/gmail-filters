@@ -77,9 +77,10 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Firearms'
   }
 
-  # Firearms: Sporting Shooter newsletter
+  # Firearms: Newsletters
   filter {
     has [{:or => [
+      'admin@nramedia.org',
       'sportingshooter@broadcast.yaffa.com.au',
     ].map{|email| "from:#{email}"}}]
     label 'Firearms'
@@ -259,6 +260,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
 
       # Blacklisted senders
       {:or => [
+        'admin@nramedia.org',
         'online@email.commonwealthawards.com.au',
         'sportingshooter@broadcast.yaffa.com.au',
       ].map{|email| "from:#{email}"}},
