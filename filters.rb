@@ -46,7 +46,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   filter {
     has ['from:howardsfireworks.com.au']
     label 'Employment/Howard and Sons'
-  }
+  }.archive_unless_directed
 
   # Employment: Howard and Sons (Payslips)
   filter {
