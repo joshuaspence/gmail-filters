@@ -85,7 +85,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       'cleaverfirearms.com',
       'gunsngear.com.au',
       'safarifirearms.com.au',
-    ].map{|email| "from:#{email}"}}]
+    ].map{|domain| "from:#{domain}"}}]
     label 'Firearms/Dealers'
   }.archive_unless_directed.also {
     label 'Firearms'
