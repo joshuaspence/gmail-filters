@@ -187,6 +187,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       '"Unsubscribe from our mailing list"',
       '"Unsubscribe from this list"',
       '"Update subscription preferences"',
+      ['"you have received"', '"you have subscribed"'],
 
       # Blacklisted senders
       {:or => [
