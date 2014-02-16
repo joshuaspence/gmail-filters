@@ -247,13 +247,13 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   github = filter {
     has ['from:notifications@github.com']
     label 'Projects'
-  }
+  }.archive_unless_directed
 
   # Projects (Phabricator)
   phabricator = filter {
     has ['from:noreply@phabricator.com']
     label 'Projects'
-  }
+  }.archive_unless_directed
 
   # Projects: arcanist
   github.also {
