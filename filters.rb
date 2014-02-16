@@ -179,16 +179,14 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   # Newsletters
   filter {
     has [{:or => [
-      {:or => [
-        'If you no longer want us to contact you',
-        'Rather not receive future emails',
-        'Remove yourself from this list',
-        'To stop receiving emails',
-        'Unsubscribe here',
-        'Unsubscribe from our mailing list',
-        'Unsubscribe from this list',
-        'Update subscription preferences',
-      ].map{|text| "\"#{text}\""}},
+      '"If you no longer want us to contact you"',
+      '"Rather not receive future emails"',
+      '"Remove yourself from this list"',
+      '"To stop receiving emails"',
+      '"Unsubscribe here"',
+      '"Unsubscribe from our mailing list"',
+      '"Unsubscribe from this list"',
+      '"Update subscription preferences"',
 
       # Blacklisted senders
       {:or => [
