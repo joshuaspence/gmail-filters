@@ -66,8 +66,12 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   # Employment: Howard and Sons (Roster)
   filter {
     has [
-      'from:howardsfireworks.com.au',
-      'subject:"Roster"',
+      {:or => [
+        'bang',
+        'cie',
+        'kayla',
+      ].map{|account| "from:#{account}@howardsfireworks.com.au"}},
+      'subject:"Roster as of"',
       'has:attachment',
     ]
     archive
