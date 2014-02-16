@@ -141,6 +141,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
 
       # Blacklisted senders
       {:or => [
+        # eBay
         [
           'from:billing@ebay.com.au',
           'subject:"eBay Invoice Notification"',
@@ -149,14 +150,20 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
           'from:ebay@ebay.com.au',
           'subject:"Your invoice for eBay purchases"',
         ],
+
+        # PayPal
         [
           'from:service@paypal.com.au',
           'subject:"Receipt for your payment"',
         ],
+
+        # Roam
         [
           'from:enquiries@e.roam.com.au',
           'subject:"Your Roam Statement is available online"',
         ],
+
+        # Telstra
         [
           'from:online.telstra.com',
           'subject:"Telstra bill for account"',
