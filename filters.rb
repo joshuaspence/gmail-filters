@@ -103,8 +103,12 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   # Firearms: Registry
   filter {
     has [{:or => [
+      'clubs@police.nsw.gov.au',
       'dealers@police.nsw.gov.au',
       'firearmsenq@police.nsw.gov.au',
+      'FRPTA@police.nsw.gov.au',
+      'imports@police.nsw.gov.au',
+      'permits@police.nsw.gov.au',
     ].map{|email| "from:#{email}"}}]
     label 'Firearms/Registry'
   }.also {
