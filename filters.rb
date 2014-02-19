@@ -179,6 +179,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   # Newsletters
   filter {
     has [{:or => [
+      '"Forward to a friend"',
       '"If you no longer want us to contact you"',
       '"Rather not receive future emails"',
       '"Remove yourself from this list"',
