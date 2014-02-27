@@ -198,6 +198,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       # Blacklisted senders
       {:or => [
         'admin@nramedia.org',
+        'aws-anz-marketing@amazon.com',
         'aws-marketing-email-replies@amazon.com',
         'online@email.commonwealthawards.com.au',
         'sportingshooter@broadcast.yaffa.com.au',
