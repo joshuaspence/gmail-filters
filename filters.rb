@@ -179,6 +179,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   # Newsletters
   filter {
     has [{:or => [
+      # Unary filters
       '"Forward to a friend"',
       '"If you no longer want us to contact you"',
       '"Rather not receive future emails"',
@@ -188,6 +189,8 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       '"Unsubscribe from our mailing list"',
       '"Unsubscribe from this list"',
       '"Update subscription preferences"',
+
+      # Binary filters
       ['"you have received"', '"you have subscribed"'],
       ['"Please do not reply to this email"', '"to unsubscribe from"'],
 
