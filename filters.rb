@@ -5,14 +5,14 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
                                    'josh@joshuaspence.com.au',
                                    'joshua@joshuaspence.com.au',
                                   ]) do
-  # Bank: Commonwealth Bank
+  # Finance: Bank
   bank = filter {
     has [{:or => [
       'cba.com.au',
       'commbank.com.au',
       'commonwealthawards.com.au',
     ].map{|domain| "from:#{domain}"}}]
-    label 'Bank'
+    label 'Finance/Bank'
   }.archive_unless_directed
   bank.also {
     has [
@@ -22,7 +22,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
         'New credit card statement',
       ].map{|subject| "subject:\"#{subject}\""}},
     ]
-    label 'Bank/Statements'
+    label 'Finance/Bank/Statements'
     mark_important
     star
   }
@@ -39,7 +39,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       '"Amount:"',
     ]
     archive
-    label 'Bank/Transfers'
+    label 'Finance/Bank/Transfers'
   }
 
   # Employment: Howard and Sons
