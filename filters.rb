@@ -5,6 +5,42 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
                                    'josh@joshuaspence.com.au',
                                    'joshua@joshuaspence.com.au',
                                   ]) do
+  # Employment: Howard and Sons
+  filter {
+    has ['from:howardsfireworks.com.au']
+    label 'Employment/Howard and Sons'
+  }.archive_unless_directed
+
+  # Employment: Howard and Sons (Payslips)
+  filter {
+    has [
+      'from:noreply@xero.com',
+      'replyto:kelly@howardsfireworks.com.au',
+      "Here's your payslip",
+      'filename:PaySlip.pdf',
+    ]
+    label 'Employment/Howard and Sons/Payslips'
+    mark_important
+    star
+  }.also {
+    label 'Employment/Payslips'
+  }
+
+  # Employment: Howard and Sons (Roster)
+  filter {
+    has [
+      {:or => [
+        'bang',
+        'cie',
+        'kayla',
+      ].map{|account| "from:#{account}@howardsfireworks.com.au"}},
+      'subject:"Roster as of"',
+      'has:attachment',
+    ]
+    archive
+    label 'Employment/Howard and Sons/Roster'
+  }
+
   # Finance: Bank
   bank = filter {
     has [{:or => [
@@ -40,42 +76,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     ]
     archive
     label 'Finance/Bank/Transfers'
-  }
-
-  # Employment: Howard and Sons
-  filter {
-    has ['from:howardsfireworks.com.au']
-    label 'Employment/Howard and Sons'
-  }.archive_unless_directed
-
-  # Employment: Howard and Sons (Payslips)
-  filter {
-    has [
-      'from:noreply@xero.com',
-      'replyto:kelly@howardsfireworks.com.au',
-      "Here's your payslip",
-      'filename:PaySlip.pdf',
-    ]
-    label 'Employment/Howard and Sons/Payslips'
-    mark_important
-    star
-  }.also {
-    label 'Employment/Payslips'
-  }
-
-  # Employment: Howard and Sons (Roster)
-  filter {
-    has [
-      {:or => [
-        'bang',
-        'cie',
-        'kayla',
-      ].map{|account| "from:#{account}@howardsfireworks.com.au"}},
-      'subject:"Roster as of"',
-      'has:attachment',
-    ]
-    archive
-    label 'Employment/Howard and Sons/Roster'
   }
 
   # Firearms: Dealers
