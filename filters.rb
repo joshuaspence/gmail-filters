@@ -300,6 +300,12 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Projects/less.js'
   }
 
+  # Projects: lesscsslint
+  github.also {
+    has ['list:lesscsslint.joshuaspence.github.com']
+    label 'Projects/lesscsslint'
+  }
+
   # Projects: libphutil
   github.also {
     has ['list:libphutil.facebook.github.com']
