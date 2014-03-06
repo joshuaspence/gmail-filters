@@ -336,6 +336,16 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Projects/Phabricator'
   }
 
+  # Projects: puppet-phabricator
+  github.also {
+    has ['list:puppet-phabricator.joshuaspence.github.com']
+    label 'Projects/puppet-phabricator'
+  }
+  travis.also {
+    has ['subject:"joshuaspence/puppet-phabricator"']
+    label 'Projects/puppet-phabricator'
+  }
+
   # Projects: raven-go
   github.also {
     has ['list:raven-go.getsentry.github.com']
