@@ -294,6 +294,16 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Projects/clean-css'
   }
 
+  # Projects: grunt-npm-validate
+  github.also {
+    has ['list:grunt-npm-validate.joshuaspence.github.com']
+    label 'Projects/grunt-npm-validate'
+  }
+  travis.also {
+    has ['subject:"joshuaspence/grunt-npm-validate"']
+    label 'Projects/grunt-npm-validate'
+  }
+
   # Projects: jshint
   github.also {
     has ['list:jshint.jshint.github.com']
