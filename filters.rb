@@ -396,6 +396,9 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     ].map{|email| "from:#{email}"}}]
     archive
     label 'Social/Google+'
+  }.also {
+    has ['subject:"new photos ready to share"']
+    mark_read
   }
 
   # Social: LinkedIn
