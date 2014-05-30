@@ -206,6 +206,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       '"We hope you enjoyed receiving this message"',
       '"Unsubscribe from our mailing list"',
       '"forward this email to a friend"',
+      '"Remove me from this list"',
 
       # Binary filters
       ['"you have received"', '"you have subscribed"'],
