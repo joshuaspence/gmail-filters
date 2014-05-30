@@ -16,7 +16,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     has [
       'from:noreply@xero.com',
       'replyto:kelly@howardsfireworks.com.au',
-      "Here's your payslip",
+      '"Here\'s your payslip"',
       'filename:PaySlip.pdf',
     ]
     label 'Employment/Howard and Sons/Payslips'
