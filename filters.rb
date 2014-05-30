@@ -86,6 +86,9 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     ]
     archive
     label 'Finance/Bank/Transfers'
+  }.also {
+    has ['"Your scheduled transfer was successfully processed."']
+    mark_read
   }
 
   # Firearms: Dealers
