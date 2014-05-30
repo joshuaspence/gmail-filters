@@ -30,7 +30,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   filter {
     has [
       {:or => [
-        'bang',
         'cie',
         'kayla',
       ].map{|account| "from:#{account}@howardsfireworks.com.au"}},
