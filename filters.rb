@@ -212,23 +212,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       # Binary filters
       ['"you have received"', '"you have subscribed"'],
       ['"Please do not reply to this email"', '"to unsubscribe from"'],
-
-      # Blacklisted senders
-      {:or => [
-        'admin@nramedia.org',
-        'aws-anz-marketing@amazon.com',
-        'aws-marketing-email-replies@amazon.com',
-        'online@email.commonwealthawards.com.au',
-        'sportingshooter@broadcast.yaffa.com.au',
-      ].map{|email| "from:#{email}"}},
-    ]}]
-    has_not [
-      # Whitelisted senders
-      {:or => [
-        'messages-noreply@linkedin.com',
-        'notifications-noreply@linkedin.com',
-        'NetBankNotification@cba.com.au',
-      ].map{|email| "from:#{email}"}},
     ]
     archive
     label 'Newsletters'
