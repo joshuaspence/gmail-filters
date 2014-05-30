@@ -366,6 +366,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   filter {
     has ['filename:invite.ics']
     label 'Social/Calendar'
+    star
   }.also {
     label 'Social'
   }
