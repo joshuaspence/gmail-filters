@@ -42,11 +42,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
 
   # Finance: Accounting
   filter {
-    has [{:or => [
-      'accounts@pocketsmith.com',
-      'support@waveaccounting2.zendesk.com',
-      'support@waveapps.com',
-    ].map{|email| "from:#{email}"}}]
+    has ['from:accounts@pocketsmith.com']
     label 'Finance/Accounting'
   }
 
