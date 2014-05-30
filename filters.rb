@@ -458,7 +458,10 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
 
   # Vehicle (Roam)
   filter {
-    has ['roam.com.au']
+    has [{:or => [
+      'roam.com.au',
+      'receipt@transurban.com.au',
+    ].map{|email| "from:#{email}"}}]
     label 'Vehicle'
   }.archive_unless_directed
 
