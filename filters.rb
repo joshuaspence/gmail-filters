@@ -135,6 +135,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   }
 
   # Invoices
+  # TODO: Improve this filter
   filter {
     has [{:or => [
       {:or => [
