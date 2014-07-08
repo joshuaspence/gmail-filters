@@ -272,7 +272,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Projects/arcanist'
   }
   phabricator.also {
-    has ['"ARCANIST PROJECT arcanist"']
+    has ['"REPOSITORY rARC Arcanist"']
     label 'Projects/arcanist'
   }
 
@@ -320,7 +320,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Projects/libphutil'
   }
   phabricator.also {
-    has ['"ARCANIST PROJECT libphutil"']
+    has ['"REPOSITORY rPHU libphutil"']
     label 'Projects/libphutil'
   }
 
@@ -330,7 +330,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Projects/Phabricator'
   }
   phabricator.also {
-    has ['"ARCANIST PROJECT phabricator"']
+    has ['"REPOSITORY rP Phabricator"']
     label 'Projects/Phabricator'
   }
 
