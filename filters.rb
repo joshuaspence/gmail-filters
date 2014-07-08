@@ -195,6 +195,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       '"Forward this email to a friend"',
       '"Forward to a friend"',
       '"If you no longer want us to contact you"',
+      '"If you no longer wish to receive"',
       '"If you wish to be unsubscribed"',
       '"Rather not receive future emails"',
       '"Remove me from this list"',
@@ -208,6 +209,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
       '"Unsubscribe here"',
       '"Update subscription preferences"',
       '"We hope you enjoyed receiving this message"',
+      '"You have subscribed"',
     ].combination(3).to_a}]
     archive
     label 'Newsletters'
