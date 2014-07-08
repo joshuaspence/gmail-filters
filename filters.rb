@@ -217,6 +217,16 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     mark_unimportant
   }
 
+  # Newsletters (blacklist)
+  filter {
+    has [{:or => [
+      'noreply@updates.freelancer.com'
+    ].map{|email| "from:#{email}"}}]
+    archive
+    label 'Newsletters'
+    mark_unimportant
+  }
+
   # Orders
   # TODO: Improve this filter.
   filter {
