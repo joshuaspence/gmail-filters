@@ -128,7 +128,7 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   filter {
     has [{:or => [
       'admin@nramedia.org',
-      'sportingshooter@broadcast.yaffa.com.au',
+      'broadcasts@yaffa.com.au',
     ].map{|email| "from:#{email}"}}]
     archive
     label 'Firearms/Newsletters'
