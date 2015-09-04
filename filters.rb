@@ -400,15 +400,6 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
     label 'Social/Facebook'
   }
 
-  # Social: Foursquare
-  filter {
-    has [{:or => [
-      'noreply@foursquare.com',
-    ].map{|email| "from:#{email}"}}]
-    archive
-    label 'Social/Foursquare'
-  }
-
   # Social: Google+
   filter {
     has [{:or => [
