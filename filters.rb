@@ -190,28 +190,35 @@ fs = GmailBritta.filterset(:me => ['josh@joshuaspence.com',
   filter {
     has [
       {:or => [
-        '"Add us to your address book"',
-        '"Do not reply to this email"',
+        {:or => [
+          '"Add to Address Book"',
+          '"Add us to your address book"',
+        ]},
+        {:or => [
+          '"Forward this email to a friend"',
+          '"Forward to a friend"',
+        ]},
+        {:or => [
+          '"If you no longer want us to contact you"',
+          '"If you wish to not receive any other emails from us"',
+          '"Rather not receive future emails"',
+          '"Remove me from this list"',
+          '"Remove yourself from this list"',
+          '"To disable this communication"',
+          '"To stop receiving emails"',
+          '"Update subscription preferences"',
+        ]},
+        {:or => [
+          '"You are receiving this email because you subscribed"',
+          '"You have subscribed"',
+        ]},
         '"Email not displaying correctly?"',
-        '"Forward this email to a friend"',
-        '"Forward to a friend"',
-        '"If you no longer want us to contact you"',
-        '"If you no longer wish to receive"',
-        '"Rather not receive future emails"',
-        '"This newsletter"',
-        '"Trouble viewing this email"',
+        '"This email was automatically sent"',
+        '"To view this email as a web page"',
         '"We hope you enjoyed receiving this message"',
-        '"You have subscribed"',
       ].combination(2).to_a},
-
-      {:or => [
-        '"Remove me from this list"',
-        '"Remove yourself from this list"',
-        '"To stop receiving emails"',
-        '"Unsubscribe"',
-        '"Update subscription preferences"',
-      ]},
     ]
+
     archive
     label 'Newsletters'
     mark_unimportant
