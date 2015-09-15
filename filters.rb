@@ -175,7 +175,7 @@ fs = GmailBritta.filterset(:me => [
         ],
       ]},
     ]}]
-    label 'Invoices'
+    label 'Invoices'=
     mark_important
     star
   }
@@ -193,14 +193,19 @@ fs = GmailBritta.filterset(:me => [
           '"Forward to a friend"',
         ]},
         {:or => [
+          '"If you do not want to receive e-mails"',
           '"If you no longer want us to contact you"',
           '"If you wish to not receive any other emails from us"',
+          '"Manage your email settings or unsubscribe"',
           '"Rather not receive future emails"',
           '"Remove me from this list"',
           '"Remove yourself from this list"',
           '"To disable this communication"',
           '"To stop receiving emails"',
+          '"Unsubscribe from this list"',
           '"Update subscription preferences"',
+          '"You can also unsubscribe by writing to"',
+          '"You can unsubscribe here"',
         ]},
         {:or => [
           '"You are receiving this email because you subscribed"',
@@ -209,7 +214,10 @@ fs = GmailBritta.filterset(:me => [
         '"Email not displaying correctly?"',
         '"This email was automatically sent"',
         '"To view this email as a web page"',
-        '"We hope you enjoyed receiving this message"',
+        {:or => [
+          '"We hope you enjoyed receiving this message"',
+          '"We want to stay in touch, but only if you want us to"',
+        ]},
       ].combination(2).to_a},
     ]
 
