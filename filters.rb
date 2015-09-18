@@ -1,6 +1,5 @@
 require 'gmail-britta'
 
-
 fs = GmailBritta.filterset(:me => [
   'josh@joshuaspence.com',
   'joshua@joshuaspence.com',
@@ -229,8 +228,19 @@ fs = GmailBritta.filterset(:me => [
   # Newsletters (blacklist)
   filter {
     has [{:or => [
-      'noreply@updates.freelancer.com'
+      'alumni.office@sydney.edu.au',
+      'aws-apac-marketing@amazon.com',
+      'aws-marketing-email-replies@amazon.com',
+      'email.campaign@sg.booking.com',
+      'info@mailer.netflix.com',
+      'marriott@marriott-email.com',
+      'noreply@updates.freelancer.com',
+      'no-reply@yaffa.com.au',
+      'nswshooter@nsw.ssaa.org.au',
+      'rewards@email.dansnews.com.au',
+      'wyndhamrewards@e-mails.wyndhamrewards.com',
     ].map{|email| "from:#{email}"}}]
+
     archive
     label 'Newsletters'
     mark_unimportant
