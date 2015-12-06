@@ -308,44 +308,6 @@ fs = GmailBritta.filterset(:me => [
     label 'Projects/arcanist'
   }
 
-  # Projects: clean-css
-  github.also {
-    has ['list:clean-css.GoalSmashers.github.com']
-    label 'Projects/clean-css'
-  }
-
-  # Projects: grunt-npm-validate
-  github.also {
-    has ['list:grunt-npm-validate.joshuaspence.github.com']
-    label 'Projects/grunt-npm-validate'
-  }
-  travis.also {
-    has ['subject:"joshuaspence/grunt-npm-validate"']
-    label 'Projects/grunt-npm-validate'
-  }
-
-  # Projects: jshint
-  github.also {
-    has ['list:jshint.jshint.github.com']
-    label 'Projects/jshint'
-  }
-
-  # Projects: less.js
-  github.also {
-    has ['list:less.js.less.github.com']
-    label 'Projects/less.js'
-  }
-
-  # Projects: lesscsslint
-  github.also {
-    has ['list:lesscsslint.joshuaspence.github.com']
-    label 'Projects/lesscsslint'
-  }
-  travis.also {
-    has ['subject:"joshuaspence/lesscsslint"']
-    label 'Projects/lesscsslint'
-  }
-
   # Projects: libphutil
   github.also {
     has ['list:libphutil.phacility.github.com']
@@ -374,18 +336,6 @@ fs = GmailBritta.filterset(:me => [
   travis.also {
     has ['subject:"joshuaspence/puppet-phabricator"']
     label 'Projects/puppet-phabricator'
-  }
-
-  # Projects: raven-go
-  github.also {
-    has ['list:raven-go.getsentry.github.com']
-    label 'Projects/raven-go'
-  }
-
-  # Projects: raven-js
-  github.also {
-    has ['list:raven-js.getsentry.github.com']
-    label 'Projects/raven-js'
   }
 
   # Projects: vagrant-phabricator
