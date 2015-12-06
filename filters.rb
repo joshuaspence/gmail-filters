@@ -174,7 +174,7 @@ fs = GmailBritta.filterset(:me => [
         ],
       ]},
     ]}]
-    label 'Invoices'=
+    label 'Invoices'
     mark_important
     star
   }
