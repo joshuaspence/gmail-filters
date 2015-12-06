@@ -207,6 +207,7 @@ fs = GmailBritta.filterset(:me => [
           '"You can unsubscribe here"',
         ]},
         {:or => [
+          '"You received this email because you signed up"',
           '"You are receiving this email because you subscribed"',
           '"You have subscribed"',
         ]},
