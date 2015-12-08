@@ -141,6 +141,7 @@ fs = GmailBritta.filterset(:me => [
     has [
       {:or => [
         {:or => [
+          'Billing Statement',
           'Payment Receipt',
           'Tax Invoice',
           'Receipt for Purchase',
