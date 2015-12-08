@@ -454,13 +454,7 @@ fs = GmailBritta.filterset(:me => [
 
   # Web: Digital Pacific
   filter {
-    has [
-      {:or => [
-        'monitoring@digitalpacific.com.au',
-        'noreply@digitalpacific.com.au',
-        'support@digitalpacific.com.au',
-      ].map{|email| "from:#{email}"}},
-    ]
+    has ['from:digitalpacific.com.au']
     label 'Web/Digital Pacific'
   }.archive_unless_directed.also {
     label 'Web'
