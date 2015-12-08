@@ -437,7 +437,7 @@ fs = GmailBritta.filterset(:me => [
       ].map{|email| "from:#{email}"}},
     ]
     label 'Vehicle'
-  }.archive_unless_directed
+  }
 
   # Web: Amazon Web Services
   filter {
@@ -448,7 +448,7 @@ fs = GmailBritta.filterset(:me => [
       ].map{|email| "from:#{email}"}},
     ]
     label 'Web/Amazon Web Services'
-  }.archive_unless_directed.also {
+  }.also {
     label 'Web'
   }
 
@@ -456,7 +456,7 @@ fs = GmailBritta.filterset(:me => [
   filter {
     has ['from:digitalpacific.com.au']
     label 'Web/Digital Pacific'
-  }.archive_unless_directed.also {
+  }.also {
     label 'Web'
   }
 end
