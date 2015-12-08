@@ -380,11 +380,7 @@ fs = GmailBritta.filterset(:me => [
 
   # Social: Facebook
   filter {
-    has [
-      {:or => [
-        'facebookmail.com',
-      ].map{|email| "from:#{email}"}},
-    ]
+    has ['from:facebookmail.com']
     archive
     label 'Social/Facebook'
   }
