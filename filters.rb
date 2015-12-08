@@ -257,6 +257,7 @@ fs = GmailBritta.filterset(:me => [
         'nswshooter@nsw.ssaa.org.au',
         'rewards@email.dansnews.com.au',
         'review@edm.realestate.com.au',
+        'univsydney@acampaign.sydney.edu.au',
         'wyndhamrewards@e-mails.wyndhamrewards.com',
       ].map{|email| "from:#{email}"}},
     ]
@@ -435,15 +436,7 @@ fs = GmailBritta.filterset(:me => [
 
   # University
   filter {
-    has [
-      {:or => [
-        {:or => [
-          'sydney.edu.au',
-          'usyd.edu.au',
-        ].map{|email| "from:#{email}"}},
-        'to:jspe9969@uni.sydney.edu.au',
-      ]},
-    ]
+    has ['to:jspe9969@uni.sydney.edu.au']
     label 'University'
   }.archive_unless_directed
 
