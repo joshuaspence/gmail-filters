@@ -385,6 +385,8 @@ fs = GmailBritta.filterset(:me => [
     has ['from:facebookmail.com']
     archive
     label 'Social/Facebook'
+  }.also {
+    label 'Social'
   }
 
   # Social: Google+
@@ -392,6 +394,8 @@ fs = GmailBritta.filterset(:me => [
     has ['from:plus.google.com']
     archive
     label 'Social/Google+'
+  }.also {
+    label 'Social'
   }
 
   # Social: LinkedIn
@@ -406,6 +410,8 @@ fs = GmailBritta.filterset(:me => [
       ].map{|email| "from:#{email}"}},
     ]
     archive
+  }.also {
+    label 'Social'
   }
 
   # Social: Twitter
@@ -418,6 +424,8 @@ fs = GmailBritta.filterset(:me => [
     ]
     archive
     label 'Social/Twitter'
+  }.also {
+    label 'Social'
   }
 
   # University
