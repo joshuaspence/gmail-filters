@@ -427,6 +427,7 @@ fs = GmailBritta.filterset(:me => [
   filter {
     has [
       {:or => [
+        'notify@twitter.com',
         'postmaster.twitter.com',
       ].map{|email| "from:#{email}"}},
     ]
