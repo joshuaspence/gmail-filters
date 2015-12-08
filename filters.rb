@@ -184,7 +184,7 @@ fs = GmailBritta.filterset(:me => [
     has [
       {:or => [
         {:or => [
-          '"Add to Address Book"',
+          '"Add to address book"',
           '"Add us to your address book"',
         ]},
         {:or => [
@@ -192,33 +192,38 @@ fs = GmailBritta.filterset(:me => [
           '"Forward to a friend"',
         ]},
         {:or => [
-          '"If you do not want to receive e-mails"',
-          '"If you no longer want us to contact you"',
-          '"If you wish to not receive any other emails from us"',
-          '"Manage your email settings or unsubscribe"',
-          '"Rather not receive future emails"',
-          '"Remove me from this list"',
-          '"Remove yourself from this list"',
-          '"To disable this communication"',
-          '"To stop receiving emails"',
-          '"Unsubscribe from this list"',
-          '"Update subscription preferences"',
-          '"You can also unsubscribe by writing to"',
-          '"You can unsubscribe here"',
-        ]},
-        {:or => [
-          '"You received this email because you signed up"',
           '"You are receiving this email because you subscribed"',
           '"You have subscribed"',
+          '"You received this email because you signed up"',
         ]},
-        '"Email not displaying correctly?"',
-        '"This email was automatically sent"',
-        '"To view this email as a web page"',
+        {:or => [
+          '"Email not displaying correctly?"',
+          '"To view this email as a web page"',
+          '"View this online"',
+        ]},
+        {:or => [
+          '"This email was automatically sent"',
+        ]},
         {:or => [
           '"We hope you enjoyed receiving this message"',
           '"We want to stay in touch, but only if you want us to"',
         ]},
       ].combination(2).to_a},
+      {:or => [
+        '"If you do not want to receive e-mails"',
+        '"If you no longer want us to contact you"',
+        '"If you wish to not receive any other emails from us"',
+        '"Manage your email settings or unsubscribe"',
+        '"Rather not receive future emails"',
+        '"Remove me from this list"',
+        '"Remove yourself from this list"',
+        '"To disable this communication"',
+        '"To stop receiving emails"',
+        '"Unsubscribe from this list"',
+        '"Update subscription preferences"',
+        '"You can also unsubscribe by writing to"',
+        '"You can unsubscribe here"',
+      ]},
     ]
 
     archive
@@ -230,6 +235,7 @@ fs = GmailBritta.filterset(:me => [
   filter {
     has [{:or => [
       'alumni.office@sydney.edu.au',
+      'announcements@email.domain.com.au',
       'aws-apac-marketing@amazon.com',
       'aws-marketing-email-replies@amazon.com',
       'email.campaign@sg.booking.com',
@@ -239,6 +245,7 @@ fs = GmailBritta.filterset(:me => [
       'no-reply@yaffa.com.au',
       'nswshooter@nsw.ssaa.org.au',
       'rewards@email.dansnews.com.au',
+      'review@edm.realestate.com.au',
       'wyndhamrewards@e-mails.wyndhamrewards.com',
     ].map{|email| "from:#{email}"}}]
 
