@@ -10,14 +10,14 @@ fs = GmailBritta.filterset(:me => [
 
   # Employment: Howard and Sons
   filter {
-    has ['from:howardsfireworks.com.au']
+    from 'howardsfireworks.com.au'
     label 'Employment/Howard and Sons'
   }.archive_unless_directed
 
   # Employment: Howard and Sons (Payslips)
   filter {
+    from 'noreply@xero.com'
     has [
-      'from:noreply@xero.com',
       'replyto:kelly@howardsfireworks.com.au',
       '"Here\'s your payslip"',
       'filename:PaySlip.pdf',
@@ -295,25 +295,25 @@ fs = GmailBritta.filterset(:me => [
 
   # Phone: Telstra
   filter {
-    has ['from:telstra.com']
+    from 'telstra.com'
     label 'Phone'
   }.archive_unless_directed
 
   # Projects: GitHub
   github = filter {
-    has ['from:notifications@github.com']
+    from 'notifications@github.com'
     label 'Projects'
   }.archive_unless_directed
 
   # Projects: Phabricator
   phabricator = filter {
-    has ['from:noreply@phabricator.com']
+    from 'noreply@phabricator.com'
     label 'Projects'
   }.archive_unless_directed
 
   # Projects: Travis
   travis = filter {
-    has ['from:notifications@travis-ci.org']
+    from 'notifications@travis-ci.org'
     label 'Projects'
   }.archive_unless_directed
 
@@ -376,7 +376,7 @@ fs = GmailBritta.filterset(:me => [
 
   # Social: Facebook
   filter {
-    has ['from:facebookmail.com']
+    from 'facebookmail.com'
     archive
     label 'Social/Facebook'
   }.also {
@@ -385,7 +385,7 @@ fs = GmailBritta.filterset(:me => [
 
   # Social: Google+
   filter {
-    has ['from:plus.google.com']
+    from 'plus.google.com'
     archive
     label 'Social/Google+'
   }.also {
@@ -394,7 +394,7 @@ fs = GmailBritta.filterset(:me => [
 
   # Social: LinkedIn
   filter {
-    has ['from:linkedin.com']
+    from 'linkedin.com'
     label 'Social/LinkedIn'
   }.also {
     has [
@@ -424,7 +424,7 @@ fs = GmailBritta.filterset(:me => [
 
   # University
   filter {
-    has ['to:jspe9969@uni.sydney.edu.au']
+    to 'jspe9969@uni.sydney.edu.au'
     label 'University'
   }.archive_unless_directed
 
@@ -454,7 +454,7 @@ fs = GmailBritta.filterset(:me => [
 
   # Web: Digital Pacific
   filter {
-    has ['from:digitalpacific.com.au']
+    from 'digitalpacific.com.au'
     label 'Web/Digital Pacific'
   }.also {
     label 'Web'
