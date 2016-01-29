@@ -422,6 +422,12 @@ fs = GmailBritta.filterset(:me => [
     label 'Social'
   }
 
+  # Travel
+  filter {
+    from 'tripadvisor.com'
+    label 'Travel'
+  }
+
   # University
   filter {
     to 'jspe9969@uni.sydney.edu.au'
