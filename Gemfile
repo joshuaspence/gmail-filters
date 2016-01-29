@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 
-gem 'gmail-britta', :github => 'antifuchs/gmail-britta'
+gem 'gmail-britta', '~> 0.1.7'
