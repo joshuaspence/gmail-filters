@@ -8,41 +8,6 @@ fs = GmailBritta.filterset(:me => [
   'joshua.james.spence@gmail.com',
 ]) do
 
-  # Employment: Howard and Sons
-  filter {
-    from 'howardsfireworks.com.au'
-    label 'Employment/Howard and Sons'
-  }.archive_unless_directed
-
-  # Employment: Howard and Sons (Payslips)
-  filter {
-    from 'noreply@xero.com'
-    has [
-      'replyto:kelly@howardsfireworks.com.au',
-      '"Here\'s your payslip"',
-      'filename:PaySlip.pdf',
-    ]
-    label 'Employment/Howard and Sons/Payslips'
-    mark_important
-    star
-  }.also {
-    label 'Employment/Payslips'
-  }
-
-  # Employment: Howard and Sons (Roster)
-  filter {
-    has [
-      {:or => [
-        'cie',
-        'kayla',
-      ].map{|account| "from:#{account}@howardsfireworks.com.au"}},
-      'subject:"Roster as of"',
-      'has:attachment',
-    ]
-    archive
-    label 'Employment/Howard and Sons/Roster'
-  }
-
   # Finance: Accounting
   filter {
     has ['from:accounts@pocketsmith.com']
