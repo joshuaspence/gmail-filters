@@ -312,22 +312,6 @@ fs = GmailBritta.filterset(:me => [
     label 'Projects/Phabricator'
   }
 
-  # Projects: puppet-phabricator
-  github.also {
-    has ['list:puppet-phabricator.joshuaspence.github.com']
-    label 'Projects/puppet-phabricator'
-  }
-  travis.also {
-    subject '"joshuaspence/puppet-phabricator"'
-    label 'Projects/puppet-phabricator'
-  }
-
-  # Projects: vagrant-phabricator
-  github.also {
-    has ['list:vagrant-phabricator.joshuaspence.github.com']
-    label 'Projects/vagrant-phabricator'
-  }
-
   # Social: Calendar
   filter {
     has ['filename:invite.ics']
