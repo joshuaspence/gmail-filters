@@ -2,9 +2,6 @@ require 'gmail-britta'
 
 fs = GmailBritta.filterset(:me => [
   'josh@joshuaspence.com',
-  'joshua@joshuaspence.com',
-  'josh@joshuaspence.com.au',
-  'joshua@joshuaspence.com.au',
   'joshua.james.spence@gmail.com',
 ]) do
 
