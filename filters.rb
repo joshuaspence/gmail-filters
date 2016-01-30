@@ -10,7 +10,7 @@ fs = GmailBritta.filterset(:me => [
 
   # Finance: Accounting
   filter {
-    has ['from:accounts@pocketsmith.com']
+    from 'accounts@pocketsmith.com'
     label 'Finance/Accounting'
   }
 
