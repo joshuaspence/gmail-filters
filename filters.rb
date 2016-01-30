@@ -318,7 +318,7 @@ fs = GmailBritta.filterset(:me => [
     label 'Projects/puppet-phabricator'
   }
   travis.also {
-    has ['subject:"joshuaspence/puppet-phabricator"']
+    subject '"joshuaspence/puppet-phabricator"'
     label 'Projects/puppet-phabricator'
   }
 
@@ -335,7 +335,7 @@ fs = GmailBritta.filterset(:me => [
   }.also {
     label 'Social'
   }.also {
-    has ['subject:Invitation']
+    subject 'Invitation'
     star
   }
 
