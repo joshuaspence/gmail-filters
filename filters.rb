@@ -381,6 +381,7 @@ fs = GmailBritta.filterset(:me => [
     label 'Social/Facebook'
   }.also {
     label 'Social'
+    smart_label 'social'
   }
 
   # Social: Google+
@@ -390,6 +391,7 @@ fs = GmailBritta.filterset(:me => [
     label 'Social/Google+'
   }.also {
     label 'Social'
+    smart_label 'social'
   }
 
   # Social: LinkedIn
@@ -406,6 +408,7 @@ fs = GmailBritta.filterset(:me => [
     archive
   }.also {
     label 'Social'
+    smart_label 'social'
   }
 
   # Social: Twitter
@@ -420,6 +423,7 @@ fs = GmailBritta.filterset(:me => [
     label 'Social/Twitter'
   }.also {
     label 'Social'
+    smart_label 'social'
   }
 
   # Travel
