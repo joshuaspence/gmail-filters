@@ -144,6 +144,12 @@ fs = GmailBritta.filterset(:me => [
             'subject:"Telstra bill for account"',
             'has:attachment',
           ],
+
+          [
+            'from:opalcustomercare@opal.com.au',
+            'subject:"Your Opal card quarterly activity statement"',
+            'has:attachment',
+          ]
         ]},
       ]},
     ]
@@ -183,6 +189,7 @@ fs = GmailBritta.filterset(:me => [
         ]},
       ].combination(2).to_a},
       {:or => [
+        '"Click here to unsubscribe"',
         '"If you do not want to receive e-mails"',
         '"If you no longer want us to contact you"',
         '"If you wish to not receive any other emails from us"',
