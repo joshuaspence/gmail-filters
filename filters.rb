@@ -149,6 +149,11 @@ fs = GmailBritta.filterset(:me => [
             'from:opalcustomercare@opal.com.au',
             'subject:"Your Opal card quarterly activity statement"',
             'has:attachment',
+          ],
+
+          [
+            'from:amazon.com',
+            'subject:"Amazon Web Services Billing Statement Available"',
           ]
         ]},
       ]},
