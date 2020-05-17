@@ -216,6 +216,18 @@ fs = GmailBritta.filterset(:me => [
     mark_unimportant
   }
 
+  filter {
+    from [{or: [
+      'deals@email.jbhifi.com.au',
+      'info@email.thegoodguys.com.au',
+      'kubeweekly@cncf.io',
+    ]}]
+
+    archive
+    label 'Newsletters'
+    mark_unimportant
+  }
+
   # Newsletters (blacklist)
   filter {
     has [
