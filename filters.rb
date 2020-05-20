@@ -236,12 +236,14 @@ fs = GmailBritta.filterset(:me => [
         'announcements@email.domain.com.au',
         'aws-apac-marketing@amazon.com',
         'aws-marketing-email-replies@amazon.com',
+        'babybunting@edm.babybunting.com.au',
         'email.campaign@sg.booking.com',
         'info@mailer.netflix.com',
         'marriott@marriott-email.com',
         'noreply@updates.freelancer.com',
         'no-reply@yaffa.com.au',
         'nswshooter@nsw.ssaa.org.au',
+        'qantasff@loyalty.qantas.com',
         'rewards@email.dansnews.com.au',
         'review@edm.realestate.com.au',
         'univsydney@acampaign.sydney.edu.au',
@@ -284,6 +286,16 @@ fs = GmailBritta.filterset(:me => [
     from 'telstra.com'
     label 'Phone'
   }.archive_unless_directed
+
+  # Pregnancy / Baby Newsletters
+  filter {
+    from 'babycentre@newsletters.babycentre.co.uk'
+
+    archive
+    label 'Newsletters'
+  }.also {
+    label 'Pregnancy'
+  }
 
   # Projects: GitHub
   github = filter {
