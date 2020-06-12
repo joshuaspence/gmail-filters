@@ -221,6 +221,7 @@ fs = GmailBritta.filterset(:me => [
       'deals@email.jbhifi.com.au',
       'info@email.thegoodguys.com.au',
       'kubeweekly@cncf.io',
+      'pokemongo@news.nianticlabs.com',
     ]}]
 
     archive
