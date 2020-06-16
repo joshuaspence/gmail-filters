@@ -245,6 +245,7 @@ fs = GmailBritta.filterset(:me => [
         'noreply@updates.freelancer.com',
         'no-reply@yaffa.com.au',
         'nswshooter@nsw.ssaa.org.au',
+        'promotions@ubnt.com',
         'qantasff@loyalty.qantas.com',
         'rewards@email.dansnews.com.au',
         'review@edm.realestate.com.au',
