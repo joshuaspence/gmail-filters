@@ -97,6 +97,16 @@ fs = GmailBritta.filterset(:me => [
     label 'Firearms'
   }
 
+  # Gumtree
+  filter {
+    from 'no-reply@emails.gumtree.com.au'
+    subject 'new results for your saved search'
+
+    archive
+    label 'Newsletters'
+    mark_unimportant
+  }
+
   # Invoices
   # TODO: Improve this filter
   filter {
